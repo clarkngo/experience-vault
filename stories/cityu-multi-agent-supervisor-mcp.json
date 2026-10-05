@@ -1,0 +1,17 @@
+{
+  "title": "Designing a supervisor-based multi-agent research framework with Google ADK and MCP",
+  "category": "System Design",
+  "tags": [
+    "Multi-Agent Systems",
+    "Google ADK",
+    "MCP",
+    "LLM",
+    "Agentic AI",
+    "Python"
+  ],
+  "relatedProject": "CityU AI Hub - Multi-Agent Research Framework",
+  "situation": "At City University of Seattle, faculty and students needed AI help with complex research workflows such as finding sources, condensing them and reasoning across them. A single LLM prompt couldn't handle these reliably; it lost context and mixed up steps.",
+  "task": "Design an agent architecture that could break research tasks into reliable, inspectable steps and plug into our tools and data sources.",
+  "action": "I designed a supervisor pattern in Google ADK, where a Supervisor Agent breaks a request into subtasks and routes them to specialized retrieval, summarization and reasoning agents. I wrote a custom Model Context Protocol (MCP) implementation so the agents could reach tools and data sources through a standard interface instead of one-off integrations. I kept each agent narrowly scoped, with clear input and output contracts, so failures could be traced to a specific step [confirm: how you evaluated quality, e.g., test prompts or faculty feedback].",
+  "result": "The framework ran complex research workflows as part of the AI Hub and served as a teaching example of agentic architecture for students [confirm: users or courses that adopted it]. What I learned: with multi-agent systems, the hard parts are orchestration and observability, not the individual prompts."
+}

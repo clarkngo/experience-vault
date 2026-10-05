@@ -1,0 +1,15 @@
+{
+  "title": "Investigating and fixing inaccurate advertising business metrics",
+  "category": "Technical",
+  "tags": [
+    "Data Quality",
+    "Debugging",
+    "Analytics",
+    "Collaboration"
+  ],
+  "relatedProject": "eBay Advertising Platform - Experiment Metadata Enhancement",
+  "situation": "On eBay's advertising platform, business metrics such as revenue clicks and impressions fed A/B test readouts and business decisions. We found inconsistencies in these numbers, and decisions made on bad data could mean shipping the wrong experiment or misreporting revenue.",
+  "task": "Find where the metrics were going wrong, quantify the problem and work with the team to correct the data and keep it from happening again.",
+  "action": "I traced the affected metrics through the pipeline, comparing counts at each stage to narrow down where they diverged [confirm: what the cause turned out to be, e.g., duplicate events, timezone boundaries or join logic]. I documented each discrepancy with reproducible queries so the evidence held up, then worked through fixes and backfills with my teammates and the metric owners. As part of the experiment-metadata project (a team of 5), I also added validation so experiment monitoring would catch similar anomalies earlier.",
+  "result": "We corrected the affected metrics [confirm: scale, e.g., the number of metrics or the dollar or percentage error], which restored trust in A/B testing readouts for the advertising teams. What I learned: with data bugs, reproducible evidence comes before the fix. If you can't show the discrepancy reliably, you can't get people to agree on the fix."
+}

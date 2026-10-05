@@ -1,0 +1,16 @@
+{
+  "title": "Assessing and planning an IT modernization for a traditional business",
+  "category": "Leadership",
+  "tags": [
+    "Stakeholder Management",
+    "IT Strategy",
+    "Change Management",
+    "ERP",
+    "Consulting"
+  ],
+  "relatedProject": "Liberty Paper - IT Modernization Strategy",
+  "situation": "Liberty Paper, a paper company in Manila, ran on outdated IT infrastructure and manual processes. Knowledge was scattered, there was no version control, HR and customer service ran on ad hoc tools, and the ERP needed modernizing.",
+  "task": "As an IT consultant on a short engagement, assess the current state and deliver a modernization plan tied to business KPIs that leadership would actually adopt.",
+  "action": "I audited the existing infrastructure and processes and interviewed people across departments to understand the pain points. I proposed a phased roadmap: a centralized knowledge base, Git and GitHub for software work, ServiceDesk for customer service and HR requests, ERPNext to modernize the ERP, and VPN plus DDNS for secure remote access. I tied each initiative to business objectives and KPIs in the company's strategic plan, and worked with cross-functional teams so the proposals fit their day-to-day operations instead of being pushed on them.",
+  "result": "Leadership received a KPI-aligned strategic plan with a prioritized roadmap [confirm: which initiatives were approved or started]. What I learned: modernization succeeds when every tool maps to a business outcome the team cares about, and when the people who will use it help shape the plan."
+}

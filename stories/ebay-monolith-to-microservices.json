@@ -1,0 +1,16 @@
+{
+  "title": "Decoupling logic from a monolith into Spring Boot microservices",
+  "category": "System Design",
+  "tags": [
+    "Microservices",
+    "Spring Boot",
+    "Refactoring",
+    "Java",
+    "CI/CD"
+  ],
+  "relatedProject": "eBay Advertising Platform",
+  "situation": "Parts of the advertising platform's tooling lived inside monolithic applications, so one small change meant redeploying and retesting a large codebase. That slowed delivery and made every release riskier.",
+  "task": "Pull specific business logic out of the monolith into independently deployable services, without disrupting a platform that was already in production.",
+  "action": "I identified pieces of logic with clear boundaries [confirm: which domain, e.g., change-metadata ingestion] and designed Spring Boot microservices with their own REST contracts. I moved functionality over in steps, keeping the monolith's behavior intact while traffic and responsibilities shifted to the new services, rather than doing a big-bang rewrite. Each service had its own Maven build, Log4j logging and Jenkins pipeline to eBay's auto-deployment tool, and I reviewed teammates' code to keep the API and logging conventions consistent.",
+  "result": "The extracted services could be deployed and changed on their own, which shrank the blast radius of releases and let our team ship features more continuously [confirm: any deploy-frequency or lead-time change]. What I learned: extract along stable boundaries and migrate in steps. Big-bang rewrites of production systems are where outages come from."
+}

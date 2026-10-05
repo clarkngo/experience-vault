@@ -1,0 +1,15 @@
+{
+  "title": "Using data to get other teams to follow site-impacting change guidelines",
+  "category": "Leadership",
+  "tags": [
+    "Influence Without Authority",
+    "Data-Driven Decisions",
+    "Cross-Team Collaboration",
+    "Change Management"
+  ],
+  "relatedProject": "eBay Advertising Platform - Change Metadata & Monitoring",
+  "situation": "eBay had guidelines for making site-impacting changes (announcing them, scheduling them and recording metadata), but teams outside ours followed them unevenly. As a contractor, I had no authority over those teams, and when changes went unrecorded, incidents took longer to diagnose for everyone.",
+  "task": "Persuade other engineering teams to adopt the change guidelines consistently, without being able to mandate it.",
+  "action": "I let the data make the case instead of arguing about process. Using the change data our pipeline collected in Elasticsearch, I measured which changes followed the guidelines and lined that up against incident and triage history, showing how much longer root-cause analysis took when a change was undocumented [confirm: the exact comparison you made]. I made the findings specific to each team, so every team could see its own numbers instead of a generic reminder. I presented them in [confirm: forums, e.g., ops reviews or team syncs] and framed compliance as something that protected their own on-call engineers, not as policy for its own sake. I also made compliance easier by having the tooling show the required metadata fields, so following the rules took less effort.",
+  "result": "Several teams adopted the guidelines [confirm: number of teams or the change in compliance rate], which made the change index more complete and helped sustain the MTTI improvement. What I learned: when you can't mandate something, show each team its own data and make the right behavior the easy one."
+}

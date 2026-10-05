@@ -1,0 +1,19 @@
+{
+  "title": "Building and deploying a self-hosted RAG chat system with an MLOps pipeline",
+  "category": "Technical",
+  "tags": [
+    "RAG",
+    "Ollama",
+    "Gemma",
+    "ChromaDB",
+    "FastAPI",
+    "MLflow",
+    "GitHub Actions",
+    "AWS EC2"
+  ],
+  "relatedProject": "CityU AI Hub - RAG Chat Systems",
+  "situation": "CityU wanted AI chat assistants grounded in its own course and institutional content. Sending that data to hosted LLM APIs raised cost and data-control concerns, and answers that weren't grounded in the content risked hallucinating.",
+  "task": "Deliver a RAG chat system that ran on self-hosted open models, gave grounded answers and could be iterated on and redeployed reliably.",
+  "action": "I served Gemma through Ollama and used ChromaDB as the vector store, with an ingestion pipeline that chunked and embedded source documents [confirm: chunking strategy and embedding model]. I exposed retrieval and generation through a FastAPI service, tracked experiments in MLflow (prompt variants, chunk sizes, model versions) so tuning decisions rested on data, and automated testing and deployment to Amazon EC2 with GitHub Actions. I also tested quantized models to fit EC2 cost and memory limits, and presented the RAG architecture and quantized-deployment findings at research symposia.",
+  "result": "Several RAG chat systems shipped to production on EC2 with a repeatable CI/CD and experiment-tracking workflow, and the approach became material for a published UKC 2024 paper on enterprise AI and RAG DevSecOps and for symposium talks [confirm: latency, accuracy or cost figures]. What I learned: in RAG, retrieval quality drives answer quality more than model size does, and experiment tracking is what keeps tuning honest."
+}

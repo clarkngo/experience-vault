@@ -1,0 +1,17 @@
+{
+  "title": "Architecting a Spring Cloud microservices platform from scratch",
+  "category": "System Design",
+  "tags": [
+    "Microservices",
+    "Spring Cloud Netflix",
+    "RabbitMQ",
+    "AWS",
+    "Service Discovery",
+    "Ownership"
+  ],
+  "relatedProject": "Worldwide American - Social Media Ranking Platform",
+  "situation": "Worldwide American needed a social media ranking platform, and I was responsible for the full architecture as well as sourcing and onboarding the engineers who would build on it. The system had to support several core domains and growing traffic.",
+  "task": "Design a backend that could scale and stay maintainable for a small, growing team, and get it into production on AWS.",
+  "action": "I designed a Spring Cloud Netflix architecture with an API Gateway as the single entry point, a Composite Service to aggregate responses, separate Core Services per domain, a Discovery Server for service registration, a Config Server for centralized configuration and an Admin Server for monitoring. I used RabbitMQ (Spring Cloud Bus) to fan out configuration changes from the config repository to every service without redeploying. Each core service had its own AWS RDS MySQL instance, and I deployed everything to EC2. I built the authentication layer with Spring Security, set up Git, GitHub and JIRA workflows, and onboarded new engineers on the architecture.",
+  "result": "The platform launched with services that could be deployed independently, live config updates and a consistent security layer, and new engineers could ramp up on clear service boundaries. Combined with the async and caching work, backend response time improved by 80%. Looking back, I'd weigh the operational overhead of this many services against the team's size more carefully. That tradeoff is worth bringing up in a system design interview."
+}
