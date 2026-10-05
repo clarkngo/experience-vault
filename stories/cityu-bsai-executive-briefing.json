@@ -1,0 +1,15 @@
+{
+  "title": "Writing an executive strategy briefing and degree proposal for a new BS in AI",
+  "category": "Leadership",
+  "tags": [
+    "Executive Communication",
+    "Strategy",
+    "Stakeholder Management",
+    "Curriculum Design"
+  ],
+  "relatedProject": "CityU BS in Artificial Intelligence (BSAI) Proposal",
+  "situation": "CityU's technology school was considering a new BS in Artificial Intelligence. Leadership needed a clear case covering why a curriculum pivot made sense, whether incoming students would be ready for the math that accreditation requires, and how the program would stand out in the market.",
+  "task": "Write an executive-level strategy briefing that department leadership could decide on, and co-author the full program proposal.",
+  "action": "I wrote the BSAI executive strategy briefing, covering the rationale for the curriculum pivot, an analysis of math readiness against accreditation requirements, and market positioning around Physical AI and operational technology (OT). I presented it to department leadership. I co-authored the full program proposal across Human-AI Interaction, Agentic Systems and MLOps. To support decisions across this and six other initiatives, I built and maintained a strategy documentation system of 70+ documents that leadership used as its reference source.",
+  "result": "Leadership had a decision-ready briefing and a complete program proposal [confirm: the decision or current status of BSAI]. The documentation system became the reference source for leadership decisions across 7 active initiatives. What I learned: executives decide on risk and positioning, so lead with the tradeoffs, not the technology."
+}

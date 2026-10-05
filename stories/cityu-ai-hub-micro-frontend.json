@@ -1,0 +1,16 @@
+{
+  "title": "Designing the AI Hub micro-frontend platform for 30+ shipped projects",
+  "category": "System Design",
+  "tags": [
+    "Micro-Frontends",
+    "React",
+    "Next.js",
+    "Platform Design",
+    "TypeScript"
+  ],
+  "relatedProject": "CityU AI Hub",
+  "situation": "CityU's AI work was spreading across many separate apps (AI-Unplugged, AI-Storybooks, AI-Tools and others), each deployed and styled differently, which made them hard for faculty and students to find and use as teaching resources.",
+  "task": "Create one platform that hosted many AI-native apps while letting each be built and deployed on its own.",
+  "action": "I designed the AI Hub as a micro-frontend platform: a shell app handled navigation, a shared look and discovery, and each AI application plugged in as its own module [confirm: the integration technique, e.g., Module Federation, iframes or route-based composition]. I set conventions for the shared UI, routing and deployment so new apps could join the hub without changing the others, and organized the hub as part of a public portfolio used for research and teaching.",
+  "result": "The AI Hub became the home for a public portfolio of 30+ shipped projects, used as a live research and teaching resource by faculty and students. What I learned: platform design is about making the right thing easy for the next contributor, through conventions and contracts more than code."
+}

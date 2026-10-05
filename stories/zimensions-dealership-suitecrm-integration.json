@@ -1,0 +1,16 @@
+{
+  "title": "Integrating a car dealership web app with SuiteCRM",
+  "category": "Technical",
+  "tags": [
+    "Systems Integration",
+    "Python",
+    "CRM",
+    "AWS EC2",
+    "Data Sync"
+  ],
+  "relatedProject": "Zimensions - Dealership to SuiteCRM Integration",
+  "situation": "At Zimensions, a dealership client's web application captured leads and customer data, but that data didn't reach their CRM, so the sales team was re-entering it by hand or working from incomplete records [confirm: the client's pain point].",
+  "task": "Build a dependable integration that synced dealership app data into SuiteCRM automatically.",
+  "action": "I built a Python integration service on Amazon EC2 that pulled records from the dealership app [confirm: API, webhook or DB], mapped them onto SuiteCRM's modules and wrote them through SuiteCRM's API. I used Airtable as a staging and lookup layer for the field mapping [confirm: Airtable's role]. I handled duplicates and partial failures with idempotent upserts and logging, so re-running a sync was always safe.",
+  "result": "Leads flowed into SuiteCRM without manual re-entry [confirm: volume or time saved]. What I learned: most integration work is data mapping and failure handling. The happy path is the easy part."
+}

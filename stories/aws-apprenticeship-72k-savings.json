@@ -1,0 +1,15 @@
+{
+  "title": "Cutting program operating costs by 40% ($72K) while keeping outcomes",
+  "category": "Leadership",
+  "tags": [
+    "Program Management",
+    "Cost Optimization",
+    "Resource Planning",
+    "Operations"
+  ],
+  "relatedProject": "Amazon AWS Military Apprenticeship Program (CityU)",
+  "situation": "I managed CityU's yearly 17-week Amazon AWS Military Apprenticeship Program, which trained military veterans and spouses in Linux administration, networking, databases, programming and full-stack development. The program's instructor and teaching assistant staffing model was expensive and unevenly loaded.",
+  "task": "Reduce operating costs without hurting apprentices' learning or their placement into Amazon on-the-job training (OJT).",
+  "action": "I analyzed how instructor and TA hours were spent across modules and found overlaps and underused time [confirm: specific inefficiencies, e.g., redundant sessions or misaligned TA coverage]. I restructured assignments so instructors focused on high-value teaching while TAs handled labs and support, reused course materials across cohorts, and ran the program on Kanban and Scrum so workload stayed visible. I made the changes together with the 5 instructors and 5 TAs I led, not just announced them, so quality didn't drop.",
+  "result": "The program saved $72,000 over 2 years, cutting the operating budget by 40%, and 93% of participants still moved on to OJT with Amazon's AWS team. What I learned: cost and quality aren't automatically a tradeoff. Fixing how work is structured can improve both."
+}

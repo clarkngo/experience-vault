@@ -1,0 +1,15 @@
+{
+  "title": "Building translation tooling and a cross-team focus group at S&P Capital IQ",
+  "category": "Behavioral",
+  "tags": [
+    "Process Improvement",
+    "Initiative",
+    "Cross-Functional Collaboration",
+    "Global Teams"
+  ],
+  "relatedProject": "S&P Capital IQ - Financial Information Translation",
+  "situation": "At S&P Capital IQ, I translated Chinese and Taiwanese public-company filings into English financial data. Translations were inconsistent across analysts, and communication between departments and with the US and India teams created friction and rework.",
+  "task": "Improve the consistency and quality of translation while keeping production high.",
+  "action": "I built a template for the Business Intelligence translation process and a large Simplified and Traditional Chinese dictionary of financial, legal and medical terms. I also developed and maintained the Systran dictionary and other translation tools so everyone used the same terms. Seeing that the gaps were partly about communication, I led a focus group to improve comprehension and collaboration between departments, working with colleagues in the US and India.",
+  "result": "I translated 1,166,110 words across 7,230 data issues over 3 years and earned an 'A' (exceeds) performance rating, and the dictionary and template improved consistency across the team. What I learned: this was my first experience fixing a process with tooling, and it's the same instinct I now bring to engineering."
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Spotting data errors and recommending database validation checks at Thomson Reuters",
+  "category": "Behavioral",
+  "tags": [
+    "Data Quality",
+    "Initiative",
+    "Automation",
+    "Attention to Detail"
+  ],
+  "relatedProject": "Thomson Reuters - Fundamentals Data Extraction",
+  "situation": "At Thomson Reuters, I extracted fundamental data from companies listed in China, Taiwan, Hong Kong and Thailand into the Voyager database. I kept finding repeated bugs and data errors that analysts were fixing by hand.",
+  "task": "Keep my own production and quality high while helping reduce errors at the system level.",
+  "action": "I tracked and analyzed recurring bugs and errors in the database, wrote up the patterns and recommended specific validation checks to catch them at entry [confirm: one example check]. I gave structured feedback on new database and application releases and looked for ways to automate repetitive work, while handling client service requests through to resolution.",
+  "result": "I achieved 130% of production targets with 99% quality. My validation recommendations went to the database team [confirm: whether they were adopted]. What I learned: this is where I first realized I'd rather fix the system than keep fixing the data, which eventually led me into software engineering."
+}

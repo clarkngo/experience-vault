@@ -1,0 +1,306 @@
+[
+  {
+    "id": "aws-apprenticeship-72k-savings",
+    "title": "Cutting program operating costs by 40% ($72K) while keeping outcomes",
+    "category": "Leadership",
+    "tags": [
+      "Program Management",
+      "Cost Optimization",
+      "Resource Planning",
+      "Operations"
+    ],
+    "relatedProject": "Amazon AWS Military Apprenticeship Program (CityU)",
+    "situation": "I managed CityU's yearly 17-week Amazon AWS Military Apprenticeship Program, which trained military veterans and spouses in Linux administration, networking, databases, programming and full-stack development. The program's instructor and teaching assistant staffing model was expensive and unevenly loaded.",
+    "task": "Reduce operating costs without hurting apprentices' learning or their placement into Amazon on-the-job training (OJT).",
+    "action": "I analyzed how instructor and TA hours were spent across modules and found overlaps and underused time [confirm: specific inefficiencies, e.g., redundant sessions or misaligned TA coverage]. I restructured assignments so instructors focused on high-value teaching while TAs handled labs and support, reused course materials across cohorts, and ran the program on Kanban and Scrum so workload stayed visible. I made the changes together with the 5 instructors and 5 TAs I led, not just announced them, so quality didn't drop.",
+    "result": "The program saved $72,000 over 2 years, cutting the operating budget by 40%, and 93% of participants still moved on to OJT with Amazon's AWS team. What I learned: cost and quality aren't automatically a tradeoff. Fixing how work is structured can improve both."
+  },
+  {
+    "id": "aws-apprenticeship-93pct-ojt",
+    "title": "Leading instructors and building curriculum that got 93% of apprentices to Amazon OJT",
+    "category": "Leadership",
+    "tags": [
+      "Mentorship",
+      "Team Leadership",
+      "Curriculum Design",
+      "Career Changers"
+    ],
+    "relatedProject": "Amazon AWS Military Apprenticeship Program (CityU)",
+    "situation": "The apprentices were military veterans and spouses, many switching careers with little technical background, and they had 17 weeks to become ready for Amazon's AWS on-the-job training.",
+    "task": "Lead the instructional team and build curriculum that turned career changers into OJT-ready technologists on a fixed timeline.",
+    "action": "I led course development across system administration, programming, databases and full-stack web development (MEAN stack, Python, MySQL, Linux, AWS). I mentored and managed 5 instructors and 5 teaching assistants, set shared standards for labs and assessments, and used checkpoints to spot struggling apprentices early so TAs could step in [confirm: the specific intervention approach]. I also taught several courses myself, which kept me close to where students actually got stuck.",
+    "result": "93% of participants moved on to OJT with Amazon's AWS team, while the program also cut costs by 40%. The curriculum approach later fed into a published ISCAP 2023 paper on lowering the barrier to entry for open-source full-stack development. What I learned: early-warning checkpoints and hands-on labs matter more for career changers than lecture volume."
+  },
+  {
+    "id": "cityu-ai-hub-micro-frontend",
+    "title": "Designing the AI Hub micro-frontend platform for 30+ shipped projects",
+    "category": "System Design",
+    "tags": [
+      "Micro-Frontends",
+      "React",
+      "Next.js",
+      "Platform Design",
+      "TypeScript"
+    ],
+    "relatedProject": "CityU AI Hub",
+    "situation": "CityU's AI work was spreading across many separate apps (AI-Unplugged, AI-Storybooks, AI-Tools and others), each deployed and styled differently, which made them hard for faculty and students to find and use as teaching resources.",
+    "task": "Create one platform that hosted many AI-native apps while letting each be built and deployed on its own.",
+    "action": "I designed the AI Hub as a micro-frontend platform: a shell app handled navigation, a shared look and discovery, and each AI application plugged in as its own module [confirm: the integration technique, e.g., Module Federation, iframes or route-based composition]. I set conventions for the shared UI, routing and deployment so new apps could join the hub without changing the others, and organized the hub as part of a public portfolio used for research and teaching.",
+    "result": "The AI Hub became the home for a public portfolio of 30+ shipped projects, used as a live research and teaching resource by faculty and students. What I learned: platform design is about making the right thing easy for the next contributor, through conventions and contracts more than code."
+  },
+  {
+    "id": "cityu-bsai-executive-briefing",
+    "title": "Writing an executive strategy briefing and degree proposal for a new BS in AI",
+    "category": "Leadership",
+    "tags": [
+      "Executive Communication",
+      "Strategy",
+      "Stakeholder Management",
+      "Curriculum Design"
+    ],
+    "relatedProject": "CityU BS in Artificial Intelligence (BSAI) Proposal",
+    "situation": "CityU's technology school was considering a new BS in Artificial Intelligence. Leadership needed a clear case covering why a curriculum pivot made sense, whether incoming students would be ready for the math that accreditation requires, and how the program would stand out in the market.",
+    "task": "Write an executive-level strategy briefing that department leadership could decide on, and co-author the full program proposal.",
+    "action": "I wrote the BSAI executive strategy briefing, covering the rationale for the curriculum pivot, an analysis of math readiness against accreditation requirements, and market positioning around Physical AI and operational technology (OT). I presented it to department leadership. I co-authored the full program proposal across Human-AI Interaction, Agentic Systems and MLOps. To support decisions across this and six other initiatives, I built and maintained a strategy documentation system of 70+ documents that leadership used as its reference source.",
+    "result": "Leadership had a decision-ready briefing and a complete program proposal [confirm: the decision or current status of BSAI]. The documentation system became the reference source for leadership decisions across 7 active initiatives. What I learned: executives decide on risk and positioning, so lead with the tradeoffs, not the technology."
+  },
+  {
+    "id": "cityu-multi-agent-supervisor-mcp",
+    "title": "Designing a supervisor-based multi-agent research framework with Google ADK and MCP",
+    "category": "System Design",
+    "tags": [
+      "Multi-Agent Systems",
+      "Google ADK",
+      "MCP",
+      "LLM",
+      "Agentic AI",
+      "Python"
+    ],
+    "relatedProject": "CityU AI Hub - Multi-Agent Research Framework",
+    "situation": "At City University of Seattle, faculty and students needed AI help with complex research workflows such as finding sources, condensing them and reasoning across them. A single LLM prompt couldn't handle these reliably; it lost context and mixed up steps.",
+    "task": "Design an agent architecture that could break research tasks into reliable, inspectable steps and plug into our tools and data sources.",
+    "action": "I designed a supervisor pattern in Google ADK, where a Supervisor Agent breaks a request into subtasks and routes them to specialized retrieval, summarization and reasoning agents. I wrote a custom Model Context Protocol (MCP) implementation so the agents could reach tools and data sources through a standard interface instead of one-off integrations. I kept each agent narrowly scoped, with clear input and output contracts, so failures could be traced to a specific step [confirm: how you evaluated quality, e.g., test prompts or faculty feedback].",
+    "result": "The framework ran complex research workflows as part of the AI Hub and served as a teaching example of agentic architecture for students [confirm: users or courses that adopted it]. What I learned: with multi-agent systems, the hard parts are orchestration and observability, not the individual prompts."
+  },
+  {
+    "id": "cityu-rag-pipeline-mlops",
+    "title": "Building and deploying a self-hosted RAG chat system with an MLOps pipeline",
+    "category": "Technical",
+    "tags": [
+      "RAG",
+      "Ollama",
+      "Gemma",
+      "ChromaDB",
+      "FastAPI",
+      "MLflow",
+      "GitHub Actions",
+      "AWS EC2"
+    ],
+    "relatedProject": "CityU AI Hub - RAG Chat Systems",
+    "situation": "CityU wanted AI chat assistants grounded in its own course and institutional content. Sending that data to hosted LLM APIs raised cost and data-control concerns, and answers that weren't grounded in the content risked hallucinating.",
+    "task": "Deliver a RAG chat system that ran on self-hosted open models, gave grounded answers and could be iterated on and redeployed reliably.",
+    "action": "I served Gemma through Ollama and used ChromaDB as the vector store, with an ingestion pipeline that chunked and embedded source documents [confirm: chunking strategy and embedding model]. I exposed retrieval and generation through a FastAPI service, tracked experiments in MLflow (prompt variants, chunk sizes, model versions) so tuning decisions rested on data, and automated testing and deployment to Amazon EC2 with GitHub Actions. I also tested quantized models to fit EC2 cost and memory limits, and presented the RAG architecture and quantized-deployment findings at research symposia.",
+    "result": "Several RAG chat systems shipped to production on EC2 with a repeatable CI/CD and experiment-tracking workflow, and the approach became material for a published UKC 2024 paper on enterprise AI and RAG DevSecOps and for symposium talks [confirm: latency, accuracy or cost figures]. What I learned: in RAG, retrieval quality drives answer quality more than model size does, and experiment tracking is what keeps tuning honest."
+  },
+  {
+    "id": "coaching-championship-teams",
+    "title": "Coaching volleyball teams to multiple championships",
+    "category": "Leadership",
+    "tags": [
+      "Coaching",
+      "Team Development",
+      "Mentorship",
+      "Performance Under Pressure"
+    ],
+    "relatedProject": "Volleyball Coaching (Sammamish HS, Xavier School, Chiang Kai Shek College)",
+    "situation": "I've coached volleyball for over 15 years alongside my professional career, at Xavier School and Chiang Kai Shek College in the Philippines and at Sammamish and Cedarcrest High Schools in Washington. Each team mixed skill levels, and each season had a short window to come together.",
+    "task": "Develop athletes individually while building a team that performs under championship pressure.",
+    "action": "I specialized in serving and blocking, broke skills into repeatable drills with clear feedback loops, and adjusted my coaching to each athlete's level. I set clear roles and expectations, built a team culture around preparation, and used match data and film [confirm: whether you used stats or film] to decide on lineups and serving strategy.",
+    "result": "My teams won multiple championships: the King County 2A title (2021, 2022) at Sammamish, FCAAF high school titles (2010–2012, 2016) and a 2011 PAYA grade school title. What I learned: coaching taught me how I mentor engineers, with clear roles, fast feedback and trust built before the high-pressure moments."
+  },
+  {
+    "id": "ebay-business-metrics-data-accuracy",
+    "title": "Investigating and fixing inaccurate advertising business metrics",
+    "category": "Technical",
+    "tags": [
+      "Data Quality",
+      "Debugging",
+      "Analytics",
+      "Collaboration"
+    ],
+    "relatedProject": "eBay Advertising Platform - Experiment Metadata Enhancement",
+    "situation": "On eBay's advertising platform, business metrics such as revenue clicks and impressions fed A/B test readouts and business decisions. We found inconsistencies in these numbers, and decisions made on bad data could mean shipping the wrong experiment or misreporting revenue.",
+    "task": "Find where the metrics were going wrong, quantify the problem and work with the team to correct the data and keep it from happening again.",
+    "action": "I traced the affected metrics through the pipeline, comparing counts at each stage to narrow down where they diverged [confirm: what the cause turned out to be, e.g., duplicate events, timezone boundaries or join logic]. I documented each discrepancy with reproducible queries so the evidence held up, then worked through fixes and backfills with my teammates and the metric owners. As part of the experiment-metadata project (a team of 5), I also added validation so experiment monitoring would catch similar anomalies earlier.",
+    "result": "We corrected the affected metrics [confirm: scale, e.g., the number of metrics or the dollar or percentage error], which restored trust in A/B testing readouts for the advertising teams. What I learned: with data bugs, reproducible evidence comes before the fix. If you can't show the discrepancy reliably, you can't get people to agree on the fix."
+  },
+  {
+    "id": "ebay-influence-change-guidelines",
+    "title": "Using data to get other teams to follow site-impacting change guidelines",
+    "category": "Leadership",
+    "tags": [
+      "Influence Without Authority",
+      "Data-Driven Decisions",
+      "Cross-Team Collaboration",
+      "Change Management"
+    ],
+    "relatedProject": "eBay Advertising Platform - Change Metadata & Monitoring",
+    "situation": "eBay had guidelines for making site-impacting changes (announcing them, scheduling them and recording metadata), but teams outside ours followed them unevenly. As a contractor, I had no authority over those teams, and when changes went unrecorded, incidents took longer to diagnose for everyone.",
+    "task": "Persuade other engineering teams to adopt the change guidelines consistently, without being able to mandate it.",
+    "action": "I let the data make the case instead of arguing about process. Using the change data our pipeline collected in Elasticsearch, I measured which changes followed the guidelines and lined that up against incident and triage history, showing how much longer root-cause analysis took when a change was undocumented [confirm: the exact comparison you made]. I made the findings specific to each team, so every team could see its own numbers instead of a generic reminder. I presented them in [confirm: forums, e.g., ops reviews or team syncs] and framed compliance as something that protected their own on-call engineers, not as policy for its own sake. I also made compliance easier by having the tooling show the required metadata fields, so following the rules took less effort.",
+    "result": "Several teams adopted the guidelines [confirm: number of teams or the change in compliance rate], which made the change index more complete and helped sustain the MTTI improvement. What I learned: when you can't mandate something, show each team its own data and make the right behavior the easy one."
+  },
+  {
+    "id": "ebay-monolith-to-microservices",
+    "title": "Decoupling logic from a monolith into Spring Boot microservices",
+    "category": "System Design",
+    "tags": [
+      "Microservices",
+      "Spring Boot",
+      "Refactoring",
+      "Java",
+      "CI/CD"
+    ],
+    "relatedProject": "eBay Advertising Platform",
+    "situation": "Parts of the advertising platform's tooling lived inside monolithic applications, so one small change meant redeploying and retesting a large codebase. That slowed delivery and made every release riskier.",
+    "task": "Pull specific business logic out of the monolith into independently deployable services, without disrupting a platform that was already in production.",
+    "action": "I identified pieces of logic with clear boundaries [confirm: which domain, e.g., change-metadata ingestion] and designed Spring Boot microservices with their own REST contracts. I moved functionality over in steps, keeping the monolith's behavior intact while traffic and responsibilities shifted to the new services, rather than doing a big-bang rewrite. Each service had its own Maven build, Log4j logging and Jenkins pipeline to eBay's auto-deployment tool, and I reviewed teammates' code to keep the API and logging conventions consistent.",
+    "result": "The extracted services could be deployed and changed on their own, which shrank the blast radius of releases and let our team ship features more continuously [confirm: any deploy-frequency or lead-time change]. What I learned: extract along stable boundaries and migrate in steps. Big-bang rewrites of production systems are where outages come from."
+  },
+  {
+    "id": "ebay-mtti-root-cause-10s",
+    "title": "Cutting time-to-root-cause for site-impacting changes from 1 minute to 10 seconds",
+    "category": "Technical",
+    "tags": [
+      "Observability",
+      "Incident Response",
+      "Java",
+      "Spring Batch",
+      "Elasticsearch",
+      "React"
+    ],
+    "relatedProject": "eBay Advertising Platform - Change Metadata & Monitoring",
+    "situation": "At eBay, I was a Software Engineer II on the advertising platform, where a bad deploy, config flip or experiment could hit revenue within minutes. When an alert fired, on-call engineers had to piece together what had changed by hand, from ServiceNow tickets, internal APIs and Slack threads, which took about a minute per incident before triage could even start.",
+    "task": "Reduce mean time to identify (MTTI) the root-cause change behind a site-impacting incident, so on-call engineers could connect an alert to the change that caused it almost immediately.",
+    "action": "I built Spring Batch jobs that pulled change records from ServiceNow and other internal APIs, normalized them into one change-metadata model and indexed them in Elasticsearch, so every change lived in one place and could be searched. On the front end, I built a React + Ant Design table view with search, filtering and validation rules, so an engineer could filter changes by time window, service and owner [confirm: the exact filter fields]. I tied it into our on-call workflow, which used Slack alerts and Grafana dashboards, so the path from alert to likely culprit was one search instead of several tool hops [confirm: whether alerts linked directly into the view]. I shipped it through Jenkins and eBay's auto-deployment tool, used Log4j logging to make the ingestion pipeline easy to debug, and took feedback from the other on-call engineers in sprint reviews.",
+    "result": "MTTI for site-impacting changes dropped from about 1 minute to about 10 seconds (6x faster), which shortened incidents on a revenue-generating platform. The central change index also became the data I later used to push other teams toward safer change practices. What I learned: during an incident, the fastest fix is often to make the right information findable, not to build a smarter alert."
+  },
+  {
+    "id": "ebay-oncall-rca",
+    "title": "Handling on-call incidents and writing root-cause analyses under pressure",
+    "category": "Behavioral",
+    "tags": [
+      "On-Call",
+      "Root Cause Analysis",
+      "Ownership",
+      "Composure Under Pressure"
+    ],
+    "relatedProject": "eBay Advertising Platform",
+    "situation": "I was on the on-call rotation for eBay's advertising platform, where Slack alerts and Grafana dashboards flagged problems that could directly affect ad revenue. Incidents could come at any hour, often involved services owned by other teams, and stakeholders wanted fast answers.",
+    "task": "Stabilize each incident quickly, find the real root cause instead of just the symptom, and write it up so it wouldn't happen again.",
+    "action": "I followed a consistent playbook: check the blast radius in Grafana, look for recent changes (using the change-metadata tooling I helped build), form a hypothesis, then confirm it with Log4j logs before taking action. I posted short, timestamped status updates in Slack so stakeholders didn't have to chase me. Once the incident was mitigated, I wrote root-cause analyses that covered the contributing factors and follow-up items, not just the trigger, and tracked those items in JIRA. [confirm: describe one specific incident to use as the main example]",
+    "result": "Incidents were mitigated quickly and the follow-ups were documented, and the patterns I kept seeing in RCAs became the motivation for the MTTI and change-guideline work. What I learned: in an incident, calm and frequent communication matters as much as technical speed, and the RCA is only worth something if the follow-ups actually ship."
+  },
+  {
+    "id": "liberty-paper-it-modernization",
+    "title": "Assessing and planning an IT modernization for a traditional business",
+    "category": "Leadership",
+    "tags": [
+      "Stakeholder Management",
+      "IT Strategy",
+      "Change Management",
+      "ERP",
+      "Consulting"
+    ],
+    "relatedProject": "Liberty Paper - IT Modernization Strategy",
+    "situation": "Liberty Paper, a paper company in Manila, ran on outdated IT infrastructure and manual processes. Knowledge was scattered, there was no version control, HR and customer service ran on ad hoc tools, and the ERP needed modernizing.",
+    "task": "As an IT consultant on a short engagement, assess the current state and deliver a modernization plan tied to business KPIs that leadership would actually adopt.",
+    "action": "I audited the existing infrastructure and processes and interviewed people across departments to understand the pain points. I proposed a phased roadmap: a centralized knowledge base, Git and GitHub for software work, ServiceDesk for customer service and HR requests, ERPNext to modernize the ERP, and VPN plus DDNS for secure remote access. I tied each initiative to business objectives and KPIs in the company's strategic plan, and worked with cross-functional teams so the proposals fit their day-to-day operations instead of being pushed on them.",
+    "result": "Leadership received a KPI-aligned strategic plan with a prioritized roadmap [confirm: which initiatives were approved or started]. What I learned: modernization succeeds when every tool maps to a business outcome the team cares about, and when the people who will use it help shape the plan."
+  },
+  {
+    "id": "sp-capital-iq-translation-process",
+    "title": "Building translation tooling and a cross-team focus group at S&P Capital IQ",
+    "category": "Behavioral",
+    "tags": [
+      "Process Improvement",
+      "Initiative",
+      "Cross-Functional Collaboration",
+      "Global Teams"
+    ],
+    "relatedProject": "S&P Capital IQ - Financial Information Translation",
+    "situation": "At S&P Capital IQ, I translated Chinese and Taiwanese public-company filings into English financial data. Translations were inconsistent across analysts, and communication between departments and with the US and India teams created friction and rework.",
+    "task": "Improve the consistency and quality of translation while keeping production high.",
+    "action": "I built a template for the Business Intelligence translation process and a large Simplified and Traditional Chinese dictionary of financial, legal and medical terms. I also developed and maintained the Systran dictionary and other translation tools so everyone used the same terms. Seeing that the gaps were partly about communication, I led a focus group to improve comprehension and collaboration between departments, working with colleagues in the US and India.",
+    "result": "I translated 1,166,110 words across 7,230 data issues over 3 years and earned an 'A' (exceeds) performance rating, and the dictionary and template improved consistency across the team. What I learned: this was my first experience fixing a process with tooling, and it's the same instinct I now bring to engineering."
+  },
+  {
+    "id": "thomson-reuters-db-validation",
+    "title": "Spotting data errors and recommending database validation checks at Thomson Reuters",
+    "category": "Behavioral",
+    "tags": [
+      "Data Quality",
+      "Initiative",
+      "Automation",
+      "Attention to Detail"
+    ],
+    "relatedProject": "Thomson Reuters - Fundamentals Data Extraction",
+    "situation": "At Thomson Reuters, I extracted fundamental data from companies listed in China, Taiwan, Hong Kong and Thailand into the Voyager database. I kept finding repeated bugs and data errors that analysts were fixing by hand.",
+    "task": "Keep my own production and quality high while helping reduce errors at the system level.",
+    "action": "I tracked and analyzed recurring bugs and errors in the database, wrote up the patterns and recommended specific validation checks to catch them at entry [confirm: one example check]. I gave structured feedback on new database and application releases and looked for ways to automate repetitive work, while handling client service requests through to resolution.",
+    "result": "I achieved 130% of production targets with 99% quality. My validation recommendations went to the database team [confirm: whether they were adopted]. What I learned: this is where I first realized I'd rather fix the system than keep fixing the data, which eventually led me into software engineering."
+  },
+  {
+    "id": "wwa-async-caching-80pct",
+    "title": "Reducing backend response time by 80% with async processing and caching",
+    "category": "Technical",
+    "tags": [
+      "Performance",
+      "Caching",
+      "Async",
+      "Java",
+      "Spring",
+      "MySQL"
+    ],
+    "relatedProject": "Worldwide American - Social Media Ranking Platform",
+    "situation": "At Worldwide American, I owned the architecture and implementation of a social media ranking platform built on React, Java Spring and MySQL on AWS RDS. Ranking requests were slow because the backend computed and fetched everything synchronously on every call.",
+    "task": "Significantly cut backend response time so the ranking pages felt responsive, without changing what the ranking results returned.",
+    "action": "I profiled the request path to find where time went [confirm: the main bottlenecks, e.g., repeated DB reads or blocking external calls]. I moved independent work to Spring's @Async processing so it ran in parallel instead of one step at a time, and added Spring Caching for data that was read often and changed rarely, with eviction tied to updates so results stayed correct. I backed the changes with JUnit and Mockito tests and checked the before-and-after latency using Spring Actuator metrics [confirm: how you measured].",
+    "result": "Backend response time dropped by 80%, and correctness held up under test. What I learned: measure before optimizing, and treat cache invalidation as a correctness problem, not an afterthought."
+  },
+  {
+    "id": "wwa-spring-cloud-microservices",
+    "title": "Architecting a Spring Cloud microservices platform from scratch",
+    "category": "System Design",
+    "tags": [
+      "Microservices",
+      "Spring Cloud Netflix",
+      "RabbitMQ",
+      "AWS",
+      "Service Discovery",
+      "Ownership"
+    ],
+    "relatedProject": "Worldwide American - Social Media Ranking Platform",
+    "situation": "Worldwide American needed a social media ranking platform, and I was responsible for the full architecture as well as sourcing and onboarding the engineers who would build on it. The system had to support several core domains and growing traffic.",
+    "task": "Design a backend that could scale and stay maintainable for a small, growing team, and get it into production on AWS.",
+    "action": "I designed a Spring Cloud Netflix architecture with an API Gateway as the single entry point, a Composite Service to aggregate responses, separate Core Services per domain, a Discovery Server for service registration, a Config Server for centralized configuration and an Admin Server for monitoring. I used RabbitMQ (Spring Cloud Bus) to fan out configuration changes from the config repository to every service without redeploying. Each core service had its own AWS RDS MySQL instance, and I deployed everything to EC2. I built the authentication layer with Spring Security, set up Git, GitHub and JIRA workflows, and onboarded new engineers on the architecture.",
+    "result": "The platform launched with services that could be deployed independently, live config updates and a consistent security layer, and new engineers could ramp up on clear service boundaries. Combined with the async and caching work, backend response time improved by 80%. Looking back, I'd weigh the operational overhead of this many services against the team's size more carefully. That tradeoff is worth bringing up in a system design interview."
+  },
+  {
+    "id": "zimensions-dealership-suitecrm-integration",
+    "title": "Integrating a car dealership web app with SuiteCRM",
+    "category": "Technical",
+    "tags": [
+      "Systems Integration",
+      "Python",
+      "CRM",
+      "AWS EC2",
+      "Data Sync"
+    ],
+    "relatedProject": "Zimensions - Dealership to SuiteCRM Integration",
+    "situation": "At Zimensions, a dealership client's web application captured leads and customer data, but that data didn't reach their CRM, so the sales team was re-entering it by hand or working from incomplete records [confirm: the client's pain point].",
+    "task": "Build a dependable integration that synced dealership app data into SuiteCRM automatically.",
+    "action": "I built a Python integration service on Amazon EC2 that pulled records from the dealership app [confirm: API, webhook or DB], mapped them onto SuiteCRM's modules and wrote them through SuiteCRM's API. I used Airtable as a staging and lookup layer for the field mapping [confirm: Airtable's role]. I handled duplicates and partial failures with idempotent upserts and logging, so re-running a sync was always safe.",
+    "result": "Leads flowed into SuiteCRM without manual re-entry [confirm: volume or time saved]. What I learned: most integration work is data mapping and failure handling. The happy path is the easy part."
+  }
+]

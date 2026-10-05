@@ -1,0 +1,15 @@
+{
+  "title": "Handling on-call incidents and writing root-cause analyses under pressure",
+  "category": "Behavioral",
+  "tags": [
+    "On-Call",
+    "Root Cause Analysis",
+    "Ownership",
+    "Composure Under Pressure"
+  ],
+  "relatedProject": "eBay Advertising Platform",
+  "situation": "I was on the on-call rotation for eBay's advertising platform, where Slack alerts and Grafana dashboards flagged problems that could directly affect ad revenue. Incidents could come at any hour, often involved services owned by other teams, and stakeholders wanted fast answers.",
+  "task": "Stabilize each incident quickly, find the real root cause instead of just the symptom, and write it up so it wouldn't happen again.",
+  "action": "I followed a consistent playbook: check the blast radius in Grafana, look for recent changes (using the change-metadata tooling I helped build), form a hypothesis, then confirm it with Log4j logs before taking action. I posted short, timestamped status updates in Slack so stakeholders didn't have to chase me. Once the incident was mitigated, I wrote root-cause analyses that covered the contributing factors and follow-up items, not just the trigger, and tracked those items in JIRA. [confirm: describe one specific incident to use as the main example]",
+  "result": "Incidents were mitigated quickly and the follow-ups were documented, and the patterns I kept seeing in RCAs became the motivation for the MTTI and change-guideline work. What I learned: in an incident, calm and frequent communication matters as much as technical speed, and the RCA is only worth something if the follow-ups actually ship."
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Reducing backend response time by 80% with async processing and caching",
+  "category": "Technical",
+  "tags": [
+    "Performance",
+    "Caching",
+    "Async",
+    "Java",
+    "Spring",
+    "MySQL"
+  ],
+  "relatedProject": "Worldwide American - Social Media Ranking Platform",
+  "situation": "At Worldwide American, I owned the architecture and implementation of a social media ranking platform built on React, Java Spring and MySQL on AWS RDS. Ranking requests were slow because the backend computed and fetched everything synchronously on every call.",
+  "task": "Significantly cut backend response time so the ranking pages felt responsive, without changing what the ranking results returned.",
+  "action": "I profiled the request path to find where time went [confirm: the main bottlenecks, e.g., repeated DB reads or blocking external calls]. I moved independent work to Spring's @Async processing so it ran in parallel instead of one step at a time, and added Spring Caching for data that was read often and changed rarely, with eviction tied to updates so results stayed correct. I backed the changes with JUnit and Mockito tests and checked the before-and-after latency using Spring Actuator metrics [confirm: how you measured].",
+  "result": "Backend response time dropped by 80%, and correctness held up under test. What I learned: measure before optimizing, and treat cache invalidation as a correctness problem, not an afterthought."
+}
