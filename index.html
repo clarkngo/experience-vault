@@ -193,12 +193,18 @@
     if (e.target.id === "clearTag") { state.tag = null; renderList(); }
   });
 
+  function openFromHash() {
+    const d = location.hash && document.getElementById(decodeURIComponent(location.hash.slice(1)));
+    if (d) { d.open = true; d.scrollIntoView(); }
+  }
+  window.addEventListener("hashchange", openFromHash);
+
   fetch("stories.json")
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
       stories = data;
       renderStats(); renderChips(); renderList();
-      if (location.hash) { const d = document.getElementById(location.hash.slice(1)); if (d) { d.open = true; d.scrollIntoView(); } }
+      openFromHash();
     })
     .catch(() => { document.getElementById("list").innerHTML = '<p class="empty">Could not load stories.json.</p>'; });
 </script>

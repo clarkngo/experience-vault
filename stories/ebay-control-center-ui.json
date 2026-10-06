@@ -1,0 +1,16 @@
+{
+  "title": "Shipping the change-investigation UI one small release at a time",
+  "category": "Technical",
+  "tags": [
+    "React",
+    "Frontend",
+    "UX",
+    "Agile",
+    "Continuous Delivery"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "Once change data was in Elasticsearch, the people investigating drops (on-call engineers, analysts and product managers) needed to find the relevant change fast. The first version of the Changes page was a bare list that was hard to search or narrow down during an incident.",
+  "task": "Make the Changes page fast to use under pressure, driven by what investigators actually asked for, without big risky releases.",
+  "action": "I shipped a steady stream of small React features based on feedback from investigators: search by ID and type, then full-text search and search by site; sorting; filters by business unit, change type and site, with filters resetting sensibly when the time range changed; an info column with placement IDs and an expandable row for full details; links to the experiment page, its approval ticket and related dashboards; experiment names and durations; and a raw-data column for power users. I also standardized site names across the Core Metrics and Changes pages so filters matched, and I added hover annotations on time-series charts that showed which changes took effect at each point. Each change went through code review, preprod and a production release with notes posted to the team channel.",
+  "result": "The Changes page became the first stop in on-call investigations and was used by roughly 20 to 40 internal users: ads infra and QA engineers, the experimentation team, release management, the merchandising front-end team, analysts, problem managers and engineering managers. Shipping in small increments meant feedback reached production within days. What I learned: incident tools improve fastest through many small releases shaped by the people using them, and consistent naming, such as site names, matters more than it looks."
+}

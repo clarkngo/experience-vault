@@ -1,0 +1,16 @@
+{
+  "title": "When my bug broke production ingestion, and a senior engineer took the blame with me",
+  "category": "Behavioral",
+  "tags": [
+    "Mistakes",
+    "Ownership",
+    "Accountability",
+    "Testing",
+    "Team Culture"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "In October 2021, a couple of months into the job, I shipped a change to the change-ingestion batch job with a rookie mistake: an unhandled null from an upstream metadata endpoint caused a NullPointerException. An analyst on our team noticed that change data had stopped appearing in Control Center, the very data on-call engineers relied on to diagnose revenue drops.",
+  "task": "Restore ingestion quickly, repair any bad data, and make sure this kind of failure couldn't silently stop the pipeline again.",
+  "action": "I found the null that caused the NullPointerException and fixed it. While investigating, I also found that a placement-ID regex was capturing digit sequences from other IDs and from dates. I fixed the regex, added unit tests for it, and deployed both fixes the same day. Then I corrected the bad placement data in production for the 5 experiments affected between October 11 and 22. When it came up with the team, the senior engineer who had reviewed my code immediately said he was accountable too, without being asked. I took that as the standard to live up to, and I added guardrails: null checks and try/catch around calls to external data, so one bad record or endpoint is logged and skipped instead of stopping the whole job.",
+  "result": "Ingestion was restored and the data repaired within days, and the guardrails meant later upstream problems degraded gracefully instead of stopping ingestion. I also took away how good teams handle mistakes: the reviewer sharing accountability made it safe to report problems fast, and I've tried to do the same since. What I learned: write defensive code wherever external data comes in, test the parsing code, and fix the culture along with the code."
+}

@@ -1,0 +1,17 @@
+{
+  "title": "Hardening a MySQL server against the CIS benchmark",
+  "category": "Technical",
+  "tags": [
+    "Security",
+    "MySQL",
+    "CIS Benchmark",
+    "Compliance",
+    "Cybersecurity",
+    "Linux"
+  ],
+  "relatedProject": "CIS Oracle MySQL Community Server 5.7 Assessment (2019)",
+  "situation": "During my MS in Computer Science, while I was president of the CityU Cybersecurity Club and network administrator for the Network & Security Lab, I evaluated how a default MySQL 5.7 Community Server installation measured up against the Center for Internet Security (CIS) benchmark. Default database installs are a common and often overlooked attack surface.",
+  "task": "Assess a MySQL 5.7 server against the CIS benchmark, find the gaps and document a remediation and approval process.",
+  "action": "I went through the CIS controls for MySQL 5.7, covering OS-level configuration, file permissions, authentication and password policy, user privileges, auditing and logging, and network settings. I checked each control on the server using Linux tooling, recorded pass or fail with evidence, prioritized the failures by risk and wrote remediation steps [confirm: the most significant findings, e.g., the anonymous account, test database or excessive grants]. I documented it as an assessment-and-approval report, alongside related work on risk assessment and security policy for an investment bank.",
+  "result": "I produced a complete benchmark assessment with prioritized fixes [confirm: number of controls failed and fixed], which I later used as teaching material for database security. What I learned: security baselines like CIS turn 'is this secure?' into a checklist you can audit, and most real exposure comes from defaults nobody changed."
+}

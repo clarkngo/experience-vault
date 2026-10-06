@@ -1,0 +1,16 @@
+{
+  "title": "On call when revenue data dropped to zero: triaging about 30 alerts down to one deploy",
+  "category": "Behavioral",
+  "tags": [
+    "On-Call",
+    "Incident Response",
+    "Root Cause Analysis",
+    "Composure Under Pressure",
+    "ClickHouse"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "On November 16, 2021, while I was on call for ads infrastructure, revenue alerts started firing early in the morning. Our real-time sales data in ClickHouse had stopped showing revenue after 2 AM PST, which set off nearly 30 P1 to P3 alerts at once: global revenue, mobile web revenue, GMV for every site (US, UK, DE, AU and more), and data-quality monitors. Any one of them could look like eBay was losing ads revenue.",
+  "task": "Work out whether revenue was really falling or our data was broken, find the cause, get the right owners to fix it, and keep the alert noise from burying everything else.",
+  "action": "Working from the alerts, I checked the underlying data and found the problem was the pipeline, not buyers: there was no revenue in ClickHouse after 2 AM across every site and platform, Seeing zeros was itself the anomaly, and nothing had happened (no major event, outage or launch) that could explain revenue really going to zero, so I treated it as an ingestion problem, not a business problem. I paged the on-call engineer for the team that owns the real-time sales ingestion, and snoozed the affected alerts for 12 hours while ClickHouse was affected so new, real alerts wouldn't be buried. The root cause was a code deploy to one of their real-time ingestion services just before 2 AM, which was inserting records with eventWeek=0 and broke the revenue queries. The deploy was rolled back, the data caught up, and the missing 2 AM to 12 PM window was backfilled. I wrote the initial RCA for our team.",
+  "result": "The deploy was rolled back, data caught up, and the gap was backfilled, so no revenue was actually lost; it was a data problem. The honest lesson I wrote into the RCA was about me: the deploy had been visible in our own changes view, the tool I was building, and I hadn't checked it first. Checking recent changes became the first step in my on-call routine and in the checklist I maintained for the team. What I learned: when many alerts start at the same moment, suspect the shared data source before suspecting the business, and stop alert noise quickly so the team can think."
+}

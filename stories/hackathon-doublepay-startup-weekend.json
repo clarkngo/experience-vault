@@ -1,0 +1,17 @@
+{
+  "title": "Building an MVP in a weekend and placing 2nd at Startup Weekend Seattle",
+  "category": "Behavioral",
+  "tags": [
+    "Ambiguity",
+    "Tight Deadline",
+    "MVP",
+    "Ruby on Rails",
+    "Teamwork",
+    "Prioritization"
+  ],
+  "relatedProject": "DoublePay (Techstars Startup Weekend Seattle 2019)",
+  "situation": "At Techstars Startup Weekend Seattle 2019, I joined a newly formed team with about 54 hours to go from an idea to a pitch in front of judges. The idea became DoublePay [confirm: one-line description of what DoublePay did], and the team had to settle on the product, the business case and a working demo with no existing code.",
+  "task": "As the team's developer, build a minimum viable product that demonstrated the core value convincingly, under an immovable deadline and with the scope changing all weekend.",
+  "action": "I pushed the team to agree early on the single user flow the pitch depended on, and I built only that flow end to end in Ruby on Rails, faking everything else (payments and integrations) behind believable screens [confirm: what was real vs. mocked]. I checked in with the business teammates every few hours so the demo matched the story they were building, cut features that didn't serve the pitch, and froze the code hours before the deadline so we could rehearse the live demo.",
+  "result": "We placed 2nd at Startup Weekend Seattle 2019, and I kept developing the DoublePay MVP in Rails afterward. Earlier, in 2018, I was runner-up at AngelHack Seattle with CashCycle. What I learned: under a hard deadline, the most valuable engineering decision is what not to build, and a demo has to serve the story."
+}

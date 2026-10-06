@@ -1,5 +1,21 @@
 [
   {
+    "id": "apprenticeship-instructor-workload-conflict",
+    "title": "Handling pushback from instructors when restructuring their workload",
+    "category": "Behavioral",
+    "tags": [
+      "Conflict Resolution",
+      "Change Management",
+      "Empathy",
+      "Team Leadership"
+    ],
+    "relatedProject": "Amazon AWS Military Apprenticeship Program (CityU)",
+    "situation": "To cut the apprenticeship program's operating budget by 40%, I had to restructure how instructor and TA hours were allocated. [confirm: crafted detail, so describe the real reaction.] One experienced instructor pushed back hard, worried the changes would reduce their hours and hurt the quality of instruction they cared about.",
+    "task": "Get the cost savings without losing a valued instructor's trust or hurting outcomes for apprentices.",
+    "action": "I met with them one-on-one before announcing anything team-wide, and listened first. Their concern about quality was legitimate, not just self-interest. I shared the utilization data openly so we were looking at the same facts, and invited them to help redesign the schedule instead of handing them a finished plan. We moved TAs onto lab support so instructors could focus on teaching, and we built in a check: if apprentice checkpoint scores dropped, we'd revisit [confirm: the actual compromise].",
+    "result": "The instructor became a supporter of the new model [confirm], the program saved $72,000 over two years, and 93% of apprentices still moved on to Amazon on-the-job training. What I learned: people resist changes done to them far more than changes they help shape, and a shared quality check turns a cost discussion into a common goal."
+  },
+  {
     "id": "aws-apprenticeship-72k-savings",
     "title": "Cutting program operating costs by 40% ($72K) while keeping outcomes",
     "category": "Leadership",
@@ -29,7 +45,95 @@
     "situation": "The apprentices were military veterans and spouses, many switching careers with little technical background, and they had 17 weeks to become ready for Amazon's AWS on-the-job training.",
     "task": "Lead the instructional team and build curriculum that turned career changers into OJT-ready technologists on a fixed timeline.",
     "action": "I led course development across system administration, programming, databases and full-stack web development (MEAN stack, Python, MySQL, Linux, AWS). I mentored and managed 5 instructors and 5 teaching assistants, set shared standards for labs and assessments, and used checkpoints to spot struggling apprentices early so TAs could step in [confirm: the specific intervention approach]. I also taught several courses myself, which kept me close to where students actually got stuck.",
-    "result": "93% of participants moved on to OJT with Amazon's AWS team, while the program also cut costs by 40%. The curriculum approach later fed into a published ISCAP 2023 paper on lowering the barrier to entry for open-source full-stack development. What I learned: early-warning checkpoints and hands-on labs matter more for career changers than lecture volume."
+    "result": "93% of participants moved on to OJT with Amazon's AWS team, while the program also cut costs by 40%. The curriculum approach later fed into a published ISCAP 2023 paper on lowering the barrier to entry for open-source full-stack development [confirm: how directly]. What I learned: early-warning checkpoints and hands-on labs matter more for career changers than lecture volume."
+  },
+  {
+    "id": "career-switch-finance-to-engineering",
+    "title": "Switching careers from financial data analysis to software engineering",
+    "category": "Behavioral",
+    "tags": [
+      "Learning Agility",
+      "Career Growth",
+      "Initiative",
+      "Resilience"
+    ],
+    "relatedProject": "Career transition (Thomson Reuters / S&P Capital IQ → MSCS → software engineering)",
+    "situation": "I spent five years as a Mandarin financial analyst at Thomson Reuters and S&P Capital IQ, extracting and translating financial data from Chinese and Taiwanese filings. The parts of the job I enjoyed most were building translation tools, dictionaries and database validation rules, and I kept seeing that the real problems were in the systems, not the data.",
+    "task": "Move into software engineering without a computer science degree, and reach a level where I could compete for engineering roles.",
+    "action": "I worked through The Firehose Project's software engineering program (Ruby on Rails, test-driven development, MVC) and built portfolio apps. I then earned an MS in Computer Science at City University of Seattle with a 3.9 GPA, while working as a graduate assistant and in IT roles. I picked up CompTIA Linux+ and AWS Cloud Practitioner certifications, competed in hackathons (placing 2nd at Startup Weekend Seattle and runner-up at AngelHack), and published research. I deliberately built the same app on several stacks (MEAN, Django, AWS serverless, Azure serverless) to learn quickly across ecosystems.",
+    "result": "I went on to engineering roles at Worldwide American and eBay, where I worked as a Software Engineer II on the advertising platform, and I now build AI systems. My finance background is still an advantage: I read business metrics fluently and catch data-quality issues others miss. What I learned: deliberate, project-based learning plus credentials that signal it gets you through the door, and domain knowledge from a previous career is an asset, not lost time."
+  },
+  {
+    "id": "change-radar-explainable-scoring",
+    "title": "Choosing an explainable scoring model over ML for incident triage",
+    "category": "System Design",
+    "tags": [
+      "Incident Response",
+      "Observability",
+      "Algorithm Design",
+      "Tradeoffs",
+      "Java",
+      "TypeScript"
+    ],
+    "relatedProject": "Change Radar (portfolio project)",
+    "situation": "I built Change Radar, a portfolio project inspired by my eBay work. It answers the first question in any incident: what changed right before this alert? Change history was split across three systems (change requests, deploys and feature flags), and the tool had to rank which recent change most likely caused a given alert.",
+    "task": "Design a ranking that an on-call engineer would trust within seconds, that works without labeled incident history, and that I could verify was correct.",
+    "action": "I rejected a learned model: I had no labeled incidents to train on, and an engineer under pressure needs to be able to check the ranking. Instead I multiplied four factors that are easy to explain: time proximity (halving every 15 minutes before the alert, with a 5-minute allowance for clock skew), blast radius (dependency hops found by a breadth-first search over the service catalog, with cycle handling), change type and declared risk. Every score comes with plain-English reasons such as 'ads-serving depends on ads-bidder'. I deliberately kept missing metadata out of the score, because an undocumented change isn't more likely to be the cause, just harder to investigate. To prove the ranking worked, I generated demo data with three planted incidents, each with one real cause and decoys (an unrelated deploy 3 minutes before the alert, a same-service deploy 48 minutes before), and wrote tests asserting the real cause ranks first.",
+    "result": "All three planted incidents rank their real cause #1, checked by unit tests at several start times and by an end-to-end test against Elasticsearch, with correlation queries returning in tens of milliseconds. The written reasons make the ranking easy to check and argue with. What I learned: in tools for people under pressure, being able to explain a result beats a marginally better one, and planting known answers in test data is the best way to show an algorithm works."
+  },
+  {
+    "id": "change-radar-resilient-ingestion",
+    "title": "Building fault-tolerant, idempotent ingestion across three different source APIs",
+    "category": "Technical",
+    "tags": [
+      "Spring Batch",
+      "Elasticsearch",
+      "Data Pipelines",
+      "Idempotency",
+      "Testcontainers",
+      "Java"
+    ],
+    "relatedProject": "Change Radar (portfolio project)",
+    "situation": "Change Radar pulls change records from three source systems that each behave differently. ServiceNow uses offset/limit paging and 'yyyy-MM-dd HH:mm:ss' UTC timestamps. The deploy API uses 1-based pages and ISO-8601 times. The feature-flag log uses 0-based pages, epoch-millisecond timestamps and a hasMore flag. Real integrations look like this, and they also fail independently.",
+    "task": "Ingest all three into one Elasticsearch index reliably: no duplicates on re-runs, no single source able to block the others, and failures visible to operators.",
+    "action": "I gave each source a small adapter that hides its paging and returns raw records, each of which knows how to normalize itself into one ChangeEvent shape. Rather than one Spring Batch job with three steps, I ran one job per source, so a ServiceNow outage can't stop deploys from being indexed, and each source reports its own status, counts and error at /api/ingest/status. Document ids are source:externalId, so re-ingesting overwrites instead of duplicating. The processor drops non-production deploys and records missing metadata at the same step. I tested the full pipeline with Testcontainers against a real Elasticsearch 9 instance, including a test that re-running ingestion leaves the document count unchanged.",
+    "result": "All 271 demo changes across the three sources are ingested on a 60-second schedule. Staging deploys are filtered out (27 skipped), re-runs are proven idempotent, and the backend's 32 tests run in CI on every push. What I learned: designing for partial failure and safe re-runs up front is far cheaper than debugging duplicate data in production. It was the same lesson as my eBay Spring Batch work, applied from day one."
+  },
+  {
+    "id": "change-radar-static-demo",
+    "title": "Shipping a backend-heavy project as a zero-cost live demo",
+    "category": "Technical",
+    "tags": [
+      "Product Thinking",
+      "React",
+      "GitHub Pages",
+      "Testing",
+      "TypeScript",
+      "CI/CD"
+    ],
+    "relatedProject": "Change Radar (portfolio project)",
+    "situation": "Change Radar needs Elasticsearch and a Spring Boot backend, but a portfolio project only matters if a recruiter can click a link and see it work. Hosting the full stack 24/7 would cost money, and asking a reviewer to run docker compose loses most of them.",
+    "task": "Give the project a live, free demo on GitHub Pages without faking its behavior or maintaining two versions of the logic that could drift apart.",
+    "action": "I put the frontend behind an API interface with two implementations: an HTTP client for the real backend, and a demo client that loads a snapshot exported from a real backend run and answers the same calls in the browser. The demo shifts every timestamp by the time since export, so the incidents always look recent. Correlation in the demo needs a TypeScript copy of the Java scorer, which is a real drift risk. I handled it with a shared file of scoring test cases that both the JUnit and Vitest suites must pass, so any formula change that isn't made in both places fails CI. A GitHub Actions workflow builds the demo variant under the repo's base path and deploys it, and a separate CI workflow runs both test suites.",
+    "result": "The project has a free live demo that behaves like the real one (the same culprit ranks first with the same score), it works on mobile, and the two scorers are guaranteed to match by 9 shared test cases. What I learned: think about how a reviewer will actually reach your work, and when duplication is unavoidable, make tests enforce that the copies agree."
+  },
+  {
+    "id": "cis-mysql-security-assessment",
+    "title": "Hardening a MySQL server against the CIS benchmark",
+    "category": "Technical",
+    "tags": [
+      "Security",
+      "MySQL",
+      "CIS Benchmark",
+      "Compliance",
+      "Cybersecurity",
+      "Linux"
+    ],
+    "relatedProject": "CIS Oracle MySQL Community Server 5.7 Assessment (2019)",
+    "situation": "During my MS in Computer Science, while I was president of the CityU Cybersecurity Club and network administrator for the Network & Security Lab, I evaluated how a default MySQL 5.7 Community Server installation measured up against the Center for Internet Security (CIS) benchmark. Default database installs are a common and often overlooked attack surface.",
+    "task": "Assess a MySQL 5.7 server against the CIS benchmark, find the gaps and document a remediation and approval process.",
+    "action": "I went through the CIS controls for MySQL 5.7, covering OS-level configuration, file permissions, authentication and password policy, user privileges, auditing and logging, and network settings. I checked each control on the server using Linux tooling, recorded pass or fail with evidence, prioritized the failures by risk and wrote remediation steps [confirm: the most significant findings, e.g., the anonymous account, test database or excessive grants]. I documented it as an assessment-and-approval report, alongside related work on risk assessment and security policy for an investment bank.",
+    "result": "I produced a complete benchmark assessment with prioritized fixes [confirm: number of controls failed and fixed], which I later used as teaching material for database security. What I learned: security baselines like CIS turn 'is this secure?' into a checklist you can audit, and most real exposure comes from defaults nobody changed."
   },
   {
     "id": "cityu-ai-hub-micro-frontend",
@@ -65,6 +169,59 @@
     "result": "Leadership had a decision-ready briefing and a complete program proposal [confirm: the decision or current status of BSAI]. The documentation system became the reference source for leadership decisions across 7 active initiatives. What I learned: executives decide on risk and positioning, so lead with the tradeoffs, not the technology."
   },
   {
+    "id": "cityu-hosted-vs-self-hosted-llm",
+    "title": "Disagreeing with stakeholders on hosted vs. self-hosted LLMs",
+    "category": "Behavioral",
+    "tags": [
+      "Disagree and Commit",
+      "Stakeholder Management",
+      "LLM",
+      "Tradeoffs",
+      "Data Privacy"
+    ],
+    "relatedProject": "CityU AI Hub - RAG Chat Systems",
+    "situation": "[confirm: crafted scenario. Verify or replace.] When planning CityU's RAG chat systems, some stakeholders wanted to use a hosted frontier-model API for answer quality. I favored self-hosting open models (Gemma via Ollama) for cost control and to keep institutional data in-house.",
+    "task": "Reach a decision that served the university, not my preference, and support it fully once made.",
+    "action": "Instead of arguing in principle, I proposed a short bake-off: the same RAG pipeline, the same evaluation questions, a hosted model versus quantized Gemma on EC2, tracked in MLflow on answer quality, latency and projected monthly cost [confirm: whether a comparison was actually run]. I presented the results neutrally, including where the hosted model was clearly better, and laid out the data-governance implications for leadership.",
+    "result": "We went with [confirm: the outcome, e.g., self-hosted for internal content with a hosted model for some use cases], and I committed fully to the decision. The quantized-deployment findings became part of my symposium talks. What I learned: when you disagree, propose an experiment, present the evidence honestly even when it cuts against you, and once the decision is made, own it."
+  },
+  {
+    "id": "cityu-ieee-1028-audit-simulation",
+    "title": "Building an incident-ticketing simulation for IEEE 1028 audit exercises",
+    "category": "Technical",
+    "tags": [
+      "Python",
+      "ITSM",
+      "Software Audits",
+      "IEEE 1028",
+      "Simulation",
+      "Teaching"
+    ],
+    "relatedProject": "CityU - Incident Ticketing Simulation",
+    "situation": "Students learning software reviews and audits (IEEE 1028) and IT service management had nothing realistic to practice on. Real ticketing systems are proprietary, and textbook examples don't produce the messy evidence a real audit has to deal with.",
+    "task": "Create a realistic incident-ticketing environment that produces audit trails students can review using IEEE 1028 procedures.",
+    "action": "I built a Python simulation that generates incident tickets moving through a realistic lifecycle (logged, triaged, escalated, resolved, closed) with timestamps, owners and SLA targets. I deliberately seeded process violations, such as missed SLAs, skipped approvals and tickets closed without a resolution note [confirm: the exact violations], so students had real findings to discover. Its output fed structured audit exercises in which students followed IEEE 1028 roles and procedures to report findings.",
+    "result": "Students practiced audits on realistic evidence with known findings planted in it, which made the exercises gradable and repeatable [confirm: courses or cohorts that used it]. What I learned: planting known answers in generated data is a powerful pattern for both teaching and testing, and I used it again for the planted incidents in Change Radar."
+  },
+  {
+    "id": "cityu-kpi-risk-dashboard",
+    "title": "Building a KPI and risk dashboard with live scoring",
+    "category": "Technical",
+    "tags": [
+      "React",
+      "Next.js",
+      "Chart.js",
+      "Flask",
+      "Dashboards",
+      "Full-Stack"
+    ],
+    "relatedProject": "CityU AI Hub - KPI/Risk Dashboard",
+    "situation": "At CityU, stakeholders tracked initiative KPIs and risks in scattered spreadsheets and documents, so there was no live view of what was on track and what was at risk [confirm: who used it and what it tracked].",
+    "task": "Build a dashboard where users could manage KPIs and risks and see risk scores update live as inputs changed.",
+    "action": "I built a Next.js and React front end with Chart.js visualizations and a Flask back end that exposed CRUD endpoints for KPIs and risks. I implemented the risk scoring on the back end [confirm: the formula, e.g., likelihood × impact] so it was computed the same way everywhere, and the UI re-scored and re-charted instantly when a value changed. I kept the data model simple and the forms validated, so non-technical users could maintain it themselves.",
+    "result": "Stakeholders got one live view of KPI status and risk instead of static documents [confirm: adoption or decision it supported]. It became one of the 30+ projects in the AI Hub portfolio. What I learned: a dashboard is only valuable if the people it serves can keep its data current themselves, so editing ease matters as much as the charts."
+  },
+  {
     "id": "cityu-multi-agent-supervisor-mcp",
     "title": "Designing a supervisor-based multi-agent research framework with Google ADK and MCP",
     "category": "System Design",
@@ -81,6 +238,22 @@
     "task": "Design an agent architecture that could break research tasks into reliable, inspectable steps and plug into our tools and data sources.",
     "action": "I designed a supervisor pattern in Google ADK, where a Supervisor Agent breaks a request into subtasks and routes them to specialized retrieval, summarization and reasoning agents. I wrote a custom Model Context Protocol (MCP) implementation so the agents could reach tools and data sources through a standard interface instead of one-off integrations. I kept each agent narrowly scoped, with clear input and output contracts, so failures could be traced to a specific step [confirm: how you evaluated quality, e.g., test prompts or faculty feedback].",
     "result": "The framework ran complex research workflows as part of the AI Hub and served as a teaching example of agentic architecture for students [confirm: users or courses that adopted it]. What I learned: with multi-agent systems, the hard parts are orchestration and observability, not the individual prompts."
+  },
+  {
+    "id": "cityu-prioritizing-initiatives",
+    "title": "Prioritizing across seven initiatives and a 30+ project portfolio",
+    "category": "Behavioral",
+    "tags": [
+      "Prioritization",
+      "Time Management",
+      "Saying No",
+      "Stakeholder Management"
+    ],
+    "relatedProject": "CityU AI Hub & Strategy Initiatives",
+    "situation": "At CityU, I was building AI systems (RAG, multi-agent and the AI Hub) while supporting seven departmental initiatives, including BSAI, Digital Twins, Blue Tech & Maritime and Corporate AI Partnerships, through a 70+ document strategy library. Requests arrived from several leaders at once, and everything was labeled urgent.",
+    "task": "Deliver what mattered most to the department without burning out or quietly letting commitments slip.",
+    "action": "I made my workload visible: a single list of every request, each tagged with the initiative it served and its deadline [confirm: the tool you used]. When requests collided, I didn't decide alone. I brought the conflict to leadership with a recommendation, for example 'the BSAI briefing is time-bound for the leadership review, so I'll pause AI Hub features for two weeks' [confirm: a real example]. I reused work across initiatives (one RAG pipeline served several apps) and kept the strategy docs current so I didn't have to re-explain context in meetings.",
+    "result": "The BSAI briefing and program proposal were delivered for leadership review while the AI Hub kept shipping, growing to 30+ projects [confirm]. What I learned: prioritization conflicts belong with the people who own the priorities, so bring them a clear recommendation instead of silently choosing."
   },
   {
     "id": "cityu-rag-pipeline-mlops",
@@ -119,87 +292,228 @@
     "result": "My teams won multiple championships: the King County 2A title (2021, 2022) at Sammamish, FCAAF high school titles (2010–2012, 2016) and a 2011 PAYA grade school title. What I learned: coaching taught me how I mentor engineers, with clear roles, fast feedback and trust built before the high-pressure moments."
   },
   {
-    "id": "ebay-business-metrics-data-accuracy",
-    "title": "Investigating and fixing inaccurate advertising business metrics",
+    "id": "codeday-auth0-jwt",
+    "title": "Securing API routes with JWT and Auth0 during a CodeDay Labs internship",
     "category": "Technical",
     "tags": [
-      "Data Quality",
-      "Debugging",
-      "Analytics",
-      "Collaboration"
+      "Security",
+      "JWT",
+      "Auth0",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "Unfamiliar Codebase"
     ],
-    "relatedProject": "eBay Advertising Platform - Experiment Metadata Enhancement",
-    "situation": "On eBay's advertising platform, business metrics such as revenue clicks and impressions fed A/B test readouts and business decisions. We found inconsistencies in these numbers, and decisions made on bad data could mean shipping the wrong experiment or misreporting revenue.",
-    "task": "Find where the metrics were going wrong, quantify the problem and work with the team to correct the data and keep it from happening again.",
-    "action": "I traced the affected metrics through the pipeline, comparing counts at each stage to narrow down where they diverged [confirm: what the cause turned out to be, e.g., duplicate events, timezone boundaries or join logic]. I documented each discrepancy with reproducible queries so the evidence held up, then worked through fixes and backfills with my teammates and the metric owners. As part of the experiment-metadata project (a team of 5), I also added validation so experiment monitoring would catch similar anomalies earlier.",
-    "result": "We corrected the affected metrics [confirm: scale, e.g., the number of metrics or the dollar or percentage error], which restored trust in A/B testing readouts for the advertising teams. What I learned: with data bugs, reproducible evidence comes before the fix. If you can't show the discrepancy reliably, you can't get people to agree on the fix."
+    "relatedProject": "CodeDay Labs Internship (MERN application)",
+    "situation": "During my CodeDay Labs software developer internship, I joined an existing MERN (MongoDB, Express, React, Node.js) application whose REST API was consumed by the UI. Some routes that changed data had no protection [confirm: the app's purpose].",
+    "task": "Extend the REST API's functionality and protect its sensitive routes, while getting up to speed on an unfamiliar codebase within a short internship.",
+    "action": "I traced how the React UI called the API to learn the codebase, then extended the Express endpoints the UI needed. For security, I integrated Auth0 and added JSON Web Token verification as Express middleware on the protected routes, so requests without a valid token were rejected before reaching the handlers. Public read routes stayed open. I coordinated with the team through GitHub pull requests and Notion.",
+    "result": "The protected routes required a valid Auth0-issued JWT, and the API supported the new UI features [confirm: features shipped]. What I learned: how to become productive quickly in someone else's codebase, starting from how it's used, plus a lasting habit of treating authentication as middleware rather than per-route code."
   },
   {
-    "id": "ebay-influence-change-guidelines",
-    "title": "Using data to get other teams to follow site-impacting change guidelines",
+    "id": "ebay-api-rate-limit-backfill",
+    "title": "Handling a rate-limited upstream API without losing data",
+    "category": "Technical",
+    "tags": [
+      "Rate Limiting",
+      "Resilience",
+      "Batch Processing",
+      "Backfill",
+      "API Integration"
+    ],
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "The experiment-change job called the internal experimentation platform's API to enrich every change with details: placements, sites, traffic and history. In April 2022 the job started getting HTTP 429 (Too Many Requests) responses. The platform was rate-limiting us, and enrichment calls were failing, so experiment data was missing from Control Center during those periods.",
+    "task": "Stay within the platform's limits without permanently losing the experiment changes that the failed calls should have captured.",
+    "action": "Once I traced the failures to 429s, I cut the number of calls the job made per run and spread them out over longer intervals, so we stopped hitting the limit. Calling less often risked leaving gaps, so I made sure the job backfilled the periods it had missed, and I backfilled the experiment data lost while we were being throttled. This built on an earlier change I'd made so that the job reported success even when a downstream API returned a 500 error, meaning one flaky dependency couldn't fail a whole run.",
+    "result": "The 429s stopped, the gaps in experiment data were backfilled, and the job ran within the platform's limits from then on. What I learned: treat an upstream API's limits as part of your design. The fix is to call less often, and backfilling is what makes calling less often safe."
+  },
+  {
+    "id": "ebay-bug-accountability",
+    "title": "When my bug broke production ingestion, and a senior engineer took the blame with me",
+    "category": "Behavioral",
+    "tags": [
+      "Mistakes",
+      "Ownership",
+      "Accountability",
+      "Testing",
+      "Team Culture"
+    ],
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "In October 2021, a couple of months into the job, I shipped a change to the change-ingestion batch job with a rookie mistake: an unhandled null from an upstream metadata endpoint caused a NullPointerException. An analyst on our team noticed that change data had stopped appearing in Control Center, the very data on-call engineers relied on to diagnose revenue drops.",
+    "task": "Restore ingestion quickly, repair any bad data, and make sure this kind of failure couldn't silently stop the pipeline again.",
+    "action": "I found the null that caused the NullPointerException and fixed it. While investigating, I also found that a placement-ID regex was capturing digit sequences from other IDs and from dates. I fixed the regex, added unit tests for it, and deployed both fixes the same day. Then I corrected the bad placement data in production for the 5 experiments affected between October 11 and 22. When it came up with the team, the senior engineer who had reviewed my code immediately said he was accountable too, without being asked. I took that as the standard to live up to, and I added guardrails: null checks and try/catch around calls to external data, so one bad record or endpoint is logged and skipped instead of stopping the whole job.",
+    "result": "Ingestion was restored and the data repaired within days, and the guardrails meant later upstream problems degraded gracefully instead of stopping ingestion. I also took away how good teams handle mistakes: the reviewer sharing accountability made it safe to report problems fast, and I've tried to do the same since. What I learned: write defensive code wherever external data comes in, test the parsing code, and fix the culture along with the code."
+  },
+  {
+    "id": "ebay-change-correlation",
+    "title": "Cutting the time to link a revenue drop to its cause from hours to minutes",
+    "category": "Technical",
+    "tags": [
+      "Observability",
+      "Incident Response",
+      "Elasticsearch",
+      "Spring Batch",
+      "Java",
+      "React",
+      "Data Integration"
+    ],
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "I was a Software Engineer II on eBay's Ads Infra team, which ran Control Center, the internal portal where the ads organization monitored revenue, clicks and impressions and handled alerts. When a revenue or metric drop alerted, on-call engineers had to work out which change caused it: an A/B experiment ramping up, a code deploy, a merchandising front-end config change, a data-warehouse change or a streaming job update. That information was scattered across ServiceNow, the experimentation platform and other tools, and the experimentation platform's own UI had no way to connect a site-impacting metric drop to an experiment change. Linking a drop to a change could take hours.",
+    "task": "I owned everything related to change data. The goal was to bring every relevant change into Control Center so that whoever was investigating a drop could see what changed, when, and what it affected, right next to the metric.",
+    "action": "I built Spring Batch jobs, one per change source, that pulled from each system's API. Experiments came from ServiceNow change requests, enriched with details from the experimentation platform's API (placements, sites, business units, traffic served, start and duration). Front-end config changes, code rollouts and rollbacks, data-warehouse changes and streaming job operations came from their own sources. Each job normalized the records into one change model and indexed it in Elasticsearch. Some sources had no change history, so for those the jobs took hourly snapshots and stored the differences between snapshots as change events. On the front end, I built the Changes page in React: a searchable, sortable, filterable table, plus annotations on the time-series charts, so hovering over a point in a revenue chart showed the changes that took effect at that moment. Later, in 2023, I added ads-platform changes and planned experiments that hadn't launched yet, so teams could see upcoming changes as well as past ones. I also wrote the SOP for confirming whether an experiment's change was missing, and I became the named contact when one was.",
+    "result": "My manager described the impact this way: correlating an issue with recent changes 'could take hours in some cases'; with the change information in Control Center, recent changes 'could be surfaced within 10 minutes, and sometimes within seconds depending on the polling cycle.' The tool served roughly 20 to 40 internal users across ads infrastructure, QA, experimentation, release management, merchandising front end, analytics, problem management and engineering management. Over about two years the pipeline grew from experiments alone to six or more change types, and checking recent changes in Control Center became a standard step in on-call investigations and incident write-ups. What I learned: during an incident, putting the right data in front of the person investigating does more than a smarter alert would."
+  },
+  {
+    "id": "ebay-control-center-ui",
+    "title": "Shipping the change-investigation UI one small release at a time",
+    "category": "Technical",
+    "tags": [
+      "React",
+      "Frontend",
+      "UX",
+      "Agile",
+      "Continuous Delivery"
+    ],
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "Once change data was in Elasticsearch, the people investigating drops (on-call engineers, analysts and product managers) needed to find the relevant change fast. The first version of the Changes page was a bare list that was hard to search or narrow down during an incident.",
+    "task": "Make the Changes page fast to use under pressure, driven by what investigators actually asked for, without big risky releases.",
+    "action": "I shipped a steady stream of small React features based on feedback from investigators: search by ID and type, then full-text search and search by site; sorting; filters by business unit, change type and site, with filters resetting sensibly when the time range changed; an info column with placement IDs and an expandable row for full details; links to the experiment page, its approval ticket and related dashboards; experiment names and durations; and a raw-data column for power users. I also standardized site names across the Core Metrics and Changes pages so filters matched, and I added hover annotations on time-series charts that showed which changes took effect at each point. Each change went through code review, preprod and a production release with notes posted to the team channel.",
+    "result": "The Changes page became the first stop in on-call investigations and was used by roughly 20 to 40 internal users: ads infra and QA engineers, the experimentation team, release management, the merchandising front-end team, analysts, problem managers and engineering managers. Shipping in small increments meant feedback reached production within days. What I learned: incident tools improve fastest through many small releases shaped by the people using them, and consistent naming, such as site names, matters more than it looks."
+  },
+  {
+    "id": "ebay-es-schema-evolution",
+    "title": "Evolving an Elasticsearch schema without reindexing, then migrating 14 months of data",
+    "category": "Technical",
+    "tags": [
+      "Elasticsearch",
+      "Schema Design",
+      "Data Migration",
+      "Tradeoffs"
+    ],
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "Change records in Elasticsearch needed structured fields such as placement IDs that could be searched. The existing 'data' field had been dynamically mapped as text early on. In Elasticsearch you can't change an existing field's type without reindexing, so a nested object couldn't go into that field. The indexes were also created per year, and each new year's index needed explicit date mappings, or time-range queries would break.",
+    "task": "Add structured, searchable fields without disrupting a production index that the on-call team used every day, and later move the data into a cleaner v2 schema.",
+    "action": "Rather than reindexing production for one field, I added a new, explicitly mapped object field (info.placementIds), updated the batch job to write it using XContentBuilder arrays and updated the UI to read and search it. I fixed the historical placement data in production for the affected experiments. I documented the yearly index-mapping step (explicit date types for start, end, effect-start and last-modified times) so new indexes wouldn't silently break queries, and I flattened the experiment change structure to remove duplicated fields. When we moved to a v2 change schema served by our metadata service, I migrated all the change data from June 2021 to July 2022 from the v1 index to v2.",
+    "result": "Placement-based search shipped without a risky production reindex, the yearly index rollover became a documented step instead of a surprise, and the v2 migration finished in September 2022 with 14 months of history intact. What I learned: decide mappings explicitly from the start, because dynamic mapping is a shortcut that costs you later, and when production is in use, an additive change beats a perfect reindex."
+  },
+  {
+    "id": "ebay-experiment-change-policy",
+    "title": "Using sampled data to change a change-tracking policy I didn't own",
     "category": "Leadership",
     "tags": [
       "Influence Without Authority",
       "Data-Driven Decisions",
       "Cross-Team Collaboration",
-      "Change Management"
+      "Process Change"
     ],
-    "relatedProject": "eBay Advertising Platform - Change Metadata & Monitoring",
-    "situation": "eBay had guidelines for making site-impacting changes (announcing them, scheduling them and recording metadata), but teams outside ours followed them unevenly. As a contractor, I had no authority over those teams, and when changes went unrecorded, incidents took longer to diagnose for everyone.",
-    "task": "Persuade other engineering teams to adopt the change guidelines consistently, without being able to mandate it.",
-    "action": "I let the data make the case instead of arguing about process. Using the change data our pipeline collected in Elasticsearch, I measured which changes followed the guidelines and lined that up against incident and triage history, showing how much longer root-cause analysis took when a change was undocumented [confirm: the exact comparison you made]. I made the findings specific to each team, so every team could see its own numbers instead of a generic reminder. I presented them in [confirm: forums, e.g., ops reviews or team syncs] and framed compliance as something that protected their own on-call engineers, not as policy for its own sake. I also made compliance easier by having the tooling show the required metadata fields, so following the rules took less effort.",
-    "result": "Several teams adopted the guidelines [confirm: number of teams or the change in compliance rate], which made the change index more complete and helped sustain the MTTI improvement. What I learned: when you can't mandate something, show each team its own data and make the right behavior the easy one."
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "Ramping an A/B experiment's traffic up or down can move revenue as much as a code deploy, but at eBay only one ServiceNow change request (CR) was filed per experiment, when it was created. Every later ramp up or down was invisible to anyone looking for what changed. The policy belonged to the operations and problem-management team, not mine. An earlier attempt to file a CR per experiment change had been rolled back after it reportedly produced 40,000 change records a day, so the idea was widely seen as too noisy.",
+    "task": "I worked on the ads infrastructure team as a contractor, with no authority over the policy. My task was to make the case for filing a CR on every experiment ramp up and down, and to make sure the change data we then ingested would be meaningful rather than noise.",
+    "action": "I started by questioning the 40,000 figure. eBay doesn't ramp anywhere near 40,000 experiments a day, so that number pointed to a bug, not to the real volume. I sampled and tracked experiments over the course of a day to measure how often traffic actually changed, which came to about 30 changes a day. I brought that estimate, and the visibility gap it would close, to the problem-management team and the experimentation team, which turned 'this will flood ServiceNow' into a manageable, concrete number. On our side, I made sure the data we ingested deserved the attention: we deduplicated so each experiment change was counted once, and we filtered out changes that didn't affect anything, like text edits, content updates or process-step updates that had previously come through as 'changes'.",
+    "result": "The policy changed. Multiple CRs per experiment ramp up and down went to production in March 2022, about three months after I started the discussion. Experiment traffic changes became visible in ServiceNow and in our change correlation, so on-call engineers could see a ramp-up that happened right before a drop. What I learned: when a proposal has been rejected because of a scary number, checking that number is often the whole argument, and filtering out noise is what makes more data worth having."
   },
   {
-    "id": "ebay-monolith-to-microservices",
-    "title": "Decoupling logic from a monolith into Spring Boot microservices",
+    "id": "ebay-interviewing-onboarding",
+    "title": "Interviewing new grads and turning tribal knowledge into SOPs",
+    "category": "Leadership",
+    "tags": [
+      "Hiring",
+      "Documentation",
+      "Knowledge Sharing",
+      "On-Call",
+      "Onboarding"
+    ],
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "The Ads Infra team was small and spread across time zones, with members in the US and other countries, and much of the knowledge for running on-call and our systems lived in people's heads. Around the same time, the team was hiring recent college graduates, and I was asked to interview candidates.",
+    "task": "Help hire well, and make it possible for new and existing teammates to handle on-call and our change-data systems without depending on me.",
+    "action": "In January 2022 I interviewed several recent-graduate candidates and gave structured feedback. For knowledge sharing, I wrote and maintained SOPs: one for experiment and front-end change metadata (how to check whether a change is missing and who to contact), others for specific revenue alerts and for jobs failing on service-account problems, plus an on-call checklist covering which alert channels to watch and how to investigate a global revenue drop. I updated the deployment docs and ran knowledge-transfer sessions and demos, such as the placement-migration and config-change demos. I helped teammates set up the service locally and reviewed their pull requests on both the UI and the batch job.",
+    "result": "Teammates had written answers for 'is this change missing?' and for common revenue-alert investigations, and the on-call checklist became the team's shared starting point for each shift. What I learned: the measure of owning a system is how well others can run it without you, and an SOP written during an incident is worth ten written afterward."
+  },
+  {
+    "id": "ebay-metadata-service",
+    "title": "Building a metadata service to stop duplicate and double writes to Elasticsearch",
     "category": "System Design",
     "tags": [
       "Microservices",
       "Spring Boot",
-      "Refactoring",
-      "Java",
-      "CI/CD"
-    ],
-    "relatedProject": "eBay Advertising Platform",
-    "situation": "Parts of the advertising platform's tooling lived inside monolithic applications, so one small change meant redeploying and retesting a large codebase. That slowed delivery and made every release riskier.",
-    "task": "Pull specific business logic out of the monolith into independently deployable services, without disrupting a platform that was already in production.",
-    "action": "I identified pieces of logic with clear boundaries [confirm: which domain, e.g., change-metadata ingestion] and designed Spring Boot microservices with their own REST contracts. I moved functionality over in steps, keeping the monolith's behavior intact while traffic and responsibilities shifted to the new services, rather than doing a big-bang rewrite. Each service had its own Maven build, Log4j logging and Jenkins pipeline to eBay's auto-deployment tool, and I reviewed teammates' code to keep the API and logging conventions consistent.",
-    "result": "The extracted services could be deployed and changed on their own, which shrank the blast radius of releases and let our team ship features more continuously [confirm: any deploy-frequency or lead-time change]. What I learned: extract along stable boundaries and migrate in steps. Big-bang rewrites of production systems are where outages come from."
-  },
-  {
-    "id": "ebay-mtti-root-cause-10s",
-    "title": "Cutting time-to-root-cause for site-impacting changes from 1 minute to 10 seconds",
-    "category": "Technical",
-    "tags": [
-      "Observability",
-      "Incident Response",
-      "Java",
-      "Spring Batch",
       "Elasticsearch",
-      "React"
+      "Idempotency",
+      "API Design",
+      "Java"
     ],
-    "relatedProject": "eBay Advertising Platform - Change Metadata & Monitoring",
-    "situation": "At eBay, I was a Software Engineer II on the advertising platform, where a bad deploy, config flip or experiment could hit revenue within minutes. When an alert fired, on-call engineers had to piece together what had changed by hand, from ServiceNow tickets, internal APIs and Slack threads, which took about a minute per incident before triage could even start.",
-    "task": "Reduce mean time to identify (MTTI) the root-cause change behind a site-impacting incident, so on-call engineers could connect an alert to the change that caused it almost immediately.",
-    "action": "I built Spring Batch jobs that pulled change records from ServiceNow and other internal APIs, normalized them into one change-metadata model and indexed them in Elasticsearch, so every change lived in one place and could be searched. On the front end, I built a React + Ant Design table view with search, filtering and validation rules, so an engineer could filter changes by time window, service and owner [confirm: the exact filter fields]. I tied it into our on-call workflow, which used Slack alerts and Grafana dashboards, so the path from alert to likely culprit was one search instead of several tool hops [confirm: whether alerts linked directly into the view]. I shipped it through Jenkins and eBay's auto-deployment tool, used Log4j logging to make the ingestion pipeline easy to debug, and took feedback from the other on-call engineers in sprint reviews.",
-    "result": "MTTI for site-impacting changes dropped from about 1 minute to about 10 seconds (6x faster), which shortened incidents on a revenue-generating platform. The central change index also became the data I later used to push other teams toward safer change practices. What I learned: during an incident, the fastest fix is often to make the right information findable, not to build a smarter alert."
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "As the change pipeline grew, several batch jobs each wrote directly to Elasticsearch, each with its own client code and its own idea of a document. I found duplicate change records and double writes in the index, including a bug where converting ZonedDateTime values produced a second write. Meanwhile other teams wanted to add their own changes (product launches, for example), and the UI and email digests read the index with queries copied in several places.",
+    "task": "Give the change data one owner: a single, consistent way to write and query changes that ruled out duplicates and that other teams and systems could use safely.",
+    "action": "I built a new Spring Boot service with a write API and a query API in front of the change indexes, and moved the batch jobs from writing to Elasticsearch directly to calling the service. To make writes idempotent, I gave each change a unique, deterministic document ID and switched inserts to upserts, so re-running a job updated records instead of duplicating them. I fixed the ZonedDateTime double write and standardized epoch-time conversion in a shared library. I added error handling and unit tests on the POST API, built a client in our shared common library so every job called the service the same way, and wrote the API design doc. The query API supported time ranges, multiple change types, sites, business units and placement filters, which the UI then used.",
+    "result": "The service went to production in May 2022, and by June all ingestion jobs wrote through it. Duplicates stopped because re-runs were now safe, and other teams could add their changes, such as search-team product launches, through the API instead of asking us. What I learned: once more than one writer touches the same data store, give it a single owner with idempotent writes. Duplicate data is much easier to prevent than to clean up."
   },
   {
-    "id": "ebay-oncall-rca",
-    "title": "Handling on-call incidents and writing root-cause analyses under pressure",
+    "id": "ebay-revenue-zero-incident",
+    "title": "On call when revenue data dropped to zero: triaging about 30 alerts down to one deploy",
     "category": "Behavioral",
     "tags": [
       "On-Call",
+      "Incident Response",
       "Root Cause Analysis",
-      "Ownership",
-      "Composure Under Pressure"
+      "Composure Under Pressure",
+      "ClickHouse"
     ],
-    "relatedProject": "eBay Advertising Platform",
-    "situation": "I was on the on-call rotation for eBay's advertising platform, where Slack alerts and Grafana dashboards flagged problems that could directly affect ad revenue. Incidents could come at any hour, often involved services owned by other teams, and stakeholders wanted fast answers.",
-    "task": "Stabilize each incident quickly, find the real root cause instead of just the symptom, and write it up so it wouldn't happen again.",
-    "action": "I followed a consistent playbook: check the blast radius in Grafana, look for recent changes (using the change-metadata tooling I helped build), form a hypothesis, then confirm it with Log4j logs before taking action. I posted short, timestamped status updates in Slack so stakeholders didn't have to chase me. Once the incident was mitigated, I wrote root-cause analyses that covered the contributing factors and follow-up items, not just the trigger, and tracked those items in JIRA. [confirm: describe one specific incident to use as the main example]",
-    "result": "Incidents were mitigated quickly and the follow-ups were documented, and the patterns I kept seeing in RCAs became the motivation for the MTTI and change-guideline work. What I learned: in an incident, calm and frequent communication matters as much as technical speed, and the RCA is only worth something if the follow-ups actually ship."
+    "relatedProject": "eBay Ads - Control Center change metadata",
+    "situation": "On November 16, 2021, while I was on call for ads infrastructure, revenue alerts started firing early in the morning. Our real-time sales data in ClickHouse had stopped showing revenue after 2 AM PST, which set off nearly 30 P1 to P3 alerts at once: global revenue, mobile web revenue, GMV for every site (US, UK, DE, AU and more), and data-quality monitors. Any one of them could look like eBay was losing ads revenue.",
+    "task": "Work out whether revenue was really falling or our data was broken, find the cause, get the right owners to fix it, and keep the alert noise from burying everything else.",
+    "action": "Working from the alerts, I checked the underlying data and found the problem was the pipeline, not buyers: there was no revenue in ClickHouse after 2 AM across every site and platform, Seeing zeros was itself the anomaly, and nothing had happened (no major event, outage or launch) that could explain revenue really going to zero, so I treated it as an ingestion problem, not a business problem. I paged the on-call engineer for the team that owns the real-time sales ingestion, and snoozed the affected alerts for 12 hours while ClickHouse was affected so new, real alerts wouldn't be buried. The root cause was a code deploy to one of their real-time ingestion services just before 2 AM, which was inserting records with eventWeek=0 and broke the revenue queries. The deploy was rolled back, the data caught up, and the missing 2 AM to 12 PM window was backfilled. I wrote the initial RCA for our team.",
+    "result": "The deploy was rolled back, data caught up, and the gap was backfilled, so no revenue was actually lost; it was a data problem. The honest lesson I wrote into the RCA was about me: the deploy had been visible in our own changes view, the tool I was building, and I hadn't checked it first. Checking recent changes became the first step in my on-call routine and in the checklist I maintained for the team. What I learned: when many alerts start at the same moment, suspect the shared data source before suspecting the business, and stop alert noise quickly so the team can think."
+  },
+  {
+    "id": "feedback-scope-and-communication",
+    "title": "Acting on feedback to communicate trade-offs earlier",
+    "category": "Behavioral",
+    "tags": [
+      "Receiving Feedback",
+      "Growth Mindset",
+      "Communication",
+      "Self-Awareness"
+    ],
+    "relatedProject": "[confirm: which role this feedback came from]",
+    "situation": "[confirm: crafted scenario. Replace it with real feedback you received.] Early in my engineering career, a manager told me that I tended to go heads-down on a hard problem and surface trade-offs or delays only when I had a finished solution, which surprised stakeholders and left them no time to adjust.",
+    "task": "Change how I worked so stakeholders saw risks and options early, without losing the deep focus that made me effective.",
+    "action": "I thanked my manager and asked for a specific recent example, so I understood the impact rather than getting defensive. I started posting short written updates at fixed points: what I'd learned, the options with trade-offs, and what I needed decided. I flagged any risk to a date the day I saw it, not when it became a problem. A few weeks later, I asked the same manager whether it was working.",
+    "result": "Stakeholders could make scope decisions earlier, and the habit carried into my later work: the status updates I posted during eBay incidents and the executive briefings at CityU both lead with options and risks [confirm]. What I learned: feedback about how you work is the most valuable kind, and asking for a specific example is what makes it actionable."
+  },
+  {
+    "id": "hackathon-doublepay-startup-weekend",
+    "title": "Building an MVP in a weekend and placing 2nd at Startup Weekend Seattle",
+    "category": "Behavioral",
+    "tags": [
+      "Ambiguity",
+      "Tight Deadline",
+      "MVP",
+      "Ruby on Rails",
+      "Teamwork",
+      "Prioritization"
+    ],
+    "relatedProject": "DoublePay (Techstars Startup Weekend Seattle 2019)",
+    "situation": "At Techstars Startup Weekend Seattle 2019, I joined a newly formed team with about 54 hours to go from an idea to a pitch in front of judges. The idea became DoublePay [confirm: one-line description of what DoublePay did], and the team had to settle on the product, the business case and a working demo with no existing code.",
+    "task": "As the team's developer, build a minimum viable product that demonstrated the core value convincingly, under an immovable deadline and with the scope changing all weekend.",
+    "action": "I pushed the team to agree early on the single user flow the pitch depended on, and I built only that flow end to end in Ruby on Rails, faking everything else (payments and integrations) behind believable screens [confirm: what was real vs. mocked]. I checked in with the business teammates every few hours so the demo matched the story they were building, cut features that didn't serve the pitch, and froze the code hours before the deadline so we could rehearse the live demo.",
+    "result": "We placed 2nd at Startup Weekend Seattle 2019, and I kept developing the DoublePay MVP in Rails afterward. Earlier, in 2018, I was runner-up at AngelHack Seattle with CashCycle. What I learned: under a hard deadline, the most valuable engineering decision is what not to build, and a demo has to serve the story."
+  },
+  {
+    "id": "instructor-teaching-career-changers",
+    "title": "Explaining technical concepts to learners with no technical background",
+    "category": "Behavioral",
+    "tags": [
+      "Communication",
+      "Teaching",
+      "Mentorship",
+      "Empathy",
+      "Curriculum Design"
+    ],
+    "relatedProject": "Computer Science Instructor - City University of Seattle",
+    "situation": "As a Computer Science instructor at CityU, I taught eight different courses, from Linux system administration, networking with Wireshark and MySQL, to full-stack MEAN development, Python and machine learning, and cybersecurity. Many students, including military veterans and spouses in the AWS apprenticeship, were switching careers and had never written code.",
+    "task": "Make dense technical material understandable and practical for learners with very different backgrounds, on fixed timelines.",
+    "action": "I anchored every abstract concept to something the students already knew. For example, I explained networking layers through mail routing and explained database joins with spreadsheets they had used before [confirm: analogies you actually used]. I put hands-on labs before theory so students hit the problem before the explanation, and I checked understanding by having students explain concepts back instead of asking 'any questions?'. I adjusted pacing based on lab results and paired stronger students with those who were struggling.",
+    "result": "Students across eight courses went from zero to working skills, and 93% of the apprenticeship cohort moved on to Amazon on-the-job training. The approach fed into my ISCAP 2023 paper on lowering the barrier to entry for full-stack development [confirm: how directly]. What I learned: if I can't explain something simply, I don't understand it well enough. Teaching made me a much clearer engineer in design reviews and incident write-ups."
   },
   {
     "id": "liberty-paper-it-modernization",
@@ -217,6 +531,42 @@
     "task": "As an IT consultant on a short engagement, assess the current state and deliver a modernization plan tied to business KPIs that leadership would actually adopt.",
     "action": "I audited the existing infrastructure and processes and interviewed people across departments to understand the pain points. I proposed a phased roadmap: a centralized knowledge base, Git and GitHub for software work, ServiceDesk for customer service and HR requests, ERPNext to modernize the ERP, and VPN plus DDNS for secure remote access. I tied each initiative to business objectives and KPIs in the company's strategic plan, and worked with cross-functional teams so the proposals fit their day-to-day operations instead of being pushed on them.",
     "result": "Leadership received a KPI-aligned strategic plan with a prioritized roadmap [confirm: which initiatives were approved or started]. What I learned: modernization succeeds when every tool maps to a business outcome the team cares about, and when the people who will use it help shape the plan."
+  },
+  {
+    "id": "open-source-hackathon-starter",
+    "title": "Contributing Google Sheets API support to a popular open-source boilerplate",
+    "category": "Behavioral",
+    "tags": [
+      "Open Source",
+      "Node.js",
+      "JavaScript",
+      "Google APIs",
+      "Collaboration",
+      "Initiative"
+    ],
+    "relatedProject": "Hackathon Starter (open-source Node.js boilerplate)",
+    "situation": "Hackathon Starter is a widely used open-source Node.js boilerplate with ready-made integrations for popular APIs. At hackathons I kept needing Google Sheets as a quick database or data source, and the boilerplate had no example for it.",
+    "task": "Contribute a Google Sheets API integration that met the project's conventions and that maintainers would accept.",
+    "action": "I studied how existing API examples were structured (routes, controllers, views and OAuth configuration) and built the Google Sheets example to match exactly instead of adding my own patterns. I documented the setup steps for getting credentials, tested the OAuth flow end to end, and opened a pull request explaining the use case. I responded to maintainer feedback [confirm: what feedback you got, if any]. Separately, I contributed documentation to Red Hat's Agile Integration workshop on APIs and containers.",
+    "result": "My Google Sheets API boilerplate was merged into Hackathon Starter, where other developers can use it [confirm: merged]. What I learned: in open source, matching the project's existing conventions matters more than clever code. Maintainers merge what's easy to review and maintain."
+  },
+  {
+    "id": "research-serverless-security",
+    "title": "Analyzing the security and quality of serverless back-end architectures",
+    "category": "Technical",
+    "tags": [
+      "Serverless",
+      "AWS Lambda",
+      "Azure Functions",
+      "Security",
+      "Research",
+      "Cloud"
+    ],
+    "relatedProject": "Serverless Book Store (AWS & Azure) / CISSE 2020 publication",
+    "situation": "Serverless computing was being adopted quickly for back-end development, but the security and quality tradeoffs of handing infrastructure to a cloud provider weren't well understood by students or by many teams. I had already built the same bookstore app as serverless on both AWS (Lambda, DynamoDB) and Azure (Functions, Cosmos DB).",
+    "task": "Assess how serverless architectures change security and quality concerns compared with traditional back ends, and turn the findings into something publishable and teachable.",
+    "action": "Using my two serverless implementations as case studies, I compared the shared-responsibility model, function permission scoping, event-injection risks, cold starts and observability across the two providers [confirm: the dimensions the paper actually covered]. I wrote it up with my co-authors, Wang, Tran and Chung, as 'Serverless Computing Architecture Security and Quality Analysis for Back-end Development'.",
+    "result": "The paper was published in the Journal of The Colloquium for Information Systems Security Education (2020), and the findings fed into my teaching of cloud and cybersecurity courses. What I learned: building the same system on two platforms is the fastest way to tell which constraints come from the design and which come from the vendor."
   },
   {
     "id": "sp-capital-iq-translation-process",
@@ -267,6 +617,56 @@
     "task": "Significantly cut backend response time so the ranking pages felt responsive, without changing what the ranking results returned.",
     "action": "I profiled the request path to find where time went [confirm: the main bottlenecks, e.g., repeated DB reads or blocking external calls]. I moved independent work to Spring's @Async processing so it ran in parallel instead of one step at a time, and added Spring Caching for data that was read often and changed rarely, with eviction tied to updates so results stayed correct. I backed the changes with JUnit and Mockito tests and checked the before-and-after latency using Spring Actuator metrics [confirm: how you measured].",
     "result": "Backend response time dropped by 80%, and correctness held up under test. What I learned: measure before optimizing, and treat cache invalidation as a correctness problem, not an afterthought."
+  },
+  {
+    "id": "wwa-auth-layer",
+    "title": "Building the authentication layer for a microservices platform",
+    "category": "Technical",
+    "tags": [
+      "Security",
+      "Spring Security",
+      "Authentication",
+      "Microservices",
+      "API Gateway"
+    ],
+    "relatedProject": "Worldwide American - Social Media Ranking Platform",
+    "situation": "Worldwide American's ranking platform was split into an API Gateway, composite and core services. Without a deliberate design, each service would handle authentication its own way, leaving inconsistent and hard-to-audit security.",
+    "task": "Build one authentication layer that secured every service consistently without adding a lot of latency or complexity per service.",
+    "action": "I built the authentication layer with Spring Security, enforcing it at the API Gateway so authentication happened once at the edge [confirm: token type, e.g., JWT, and whether core services also checked tokens]. Downstream services trusted identity passed through the gateway inside the private network, so the security rules lived in one place. I covered it with JUnit and Mockito tests for valid, expired and missing credentials, and kept secrets in the Config Server instead of in code [confirm].",
+    "result": "Every service was secured the same way through one layer, which made new services quicker to add and access easier to audit. What I learned: centralize authentication at the edge, but decide explicitly how much internal services trust each other, because that decision is the real security boundary."
+  },
+  {
+    "id": "wwa-hiring-onboarding",
+    "title": "Sourcing and onboarding engineers while owning the architecture",
+    "category": "Leadership",
+    "tags": [
+      "Hiring",
+      "Onboarding",
+      "Ownership",
+      "Team Building"
+    ],
+    "relatedProject": "Worldwide American - Social Media Ranking Platform",
+    "situation": "At Worldwide American, besides owning the platform's architecture, I was responsible for sourcing engineers and onboarding new team members. The platform was a complex Spring Cloud microservices system, so a poorly onboarded engineer could easily break service boundaries.",
+    "task": "Find engineers who could contribute quickly and get them productive in a distributed system they had never seen.",
+    "action": "I screened candidates for the skills the architecture needed: Spring, REST and SQL fundamentals, plus an aptitude for debugging across services [confirm: sourcing channels and how many people were hired]. For onboarding, I wrote down the service map (gateway, composite, core, discovery, config, admin) and the rules for which service owns what, set up Git, GitHub and JIRA workflows, and gave each new engineer a first task contained within one core service before cross-service work.",
+    "result": "New engineers shipped within clear service boundaries, and the team grew without the architecture degrading [confirm: team size before and after]. What I learned: an architecture is only as good as the team's shared understanding of it, so writing down boundaries is part of designing them."
+  },
+  {
+    "id": "wwa-overengineering-lesson",
+    "title": "A design I'd do differently: too many microservices for a small team",
+    "category": "Behavioral",
+    "tags": [
+      "Failure",
+      "Self-Reflection",
+      "Architecture",
+      "Tradeoffs",
+      "Microservices"
+    ],
+    "relatedProject": "Worldwide American - Social Media Ranking Platform",
+    "situation": "At Worldwide American, I designed the ranking platform as a full Spring Cloud Netflix microservices system: API Gateway, composite service, core services, discovery, config server, admin server and RabbitMQ, each core service with its own RDS database. The team was small and the engagement lasted about six months [confirm: team size].",
+    "task": "In hindsight, the goal was to ship a reliable ranking platform quickly with a small team. The architecture was optimized for a scale and team size we didn't have yet.",
+    "action": "As the platform grew, I saw the cost of the design: local development needed many services running, a feature often touched three services and their deployments, and infrastructure costs and debugging time across services added up [confirm: the specific pain you actually hit]. I responded by [confirm: e.g., consolidating services, adding Docker Compose for local dev, or documenting the service map], and I've since changed my approach: start with a modular monolith with clear internal boundaries, and split out a service only when there's a concrete scaling, ownership or deployment reason.",
+    "result": "The platform shipped and performed well (an 80% response-time improvement), but delivery was slower and operations heavier than they needed to be [confirm]. What I learned: architecture should fit the team you have, not the scale you hope for. Today I justify every service boundary with a concrete reason. That's the judgment I applied later at eBay when deciding what to extract from monoliths."
   },
   {
     "id": "wwa-spring-cloud-microservices",

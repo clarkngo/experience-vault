@@ -1,0 +1,15 @@
+{
+  "title": "Sourcing and onboarding engineers while owning the architecture",
+  "category": "Leadership",
+  "tags": [
+    "Hiring",
+    "Onboarding",
+    "Ownership",
+    "Team Building"
+  ],
+  "relatedProject": "Worldwide American - Social Media Ranking Platform",
+  "situation": "At Worldwide American, besides owning the platform's architecture, I was responsible for sourcing engineers and onboarding new team members. The platform was a complex Spring Cloud microservices system, so a poorly onboarded engineer could easily break service boundaries.",
+  "task": "Find engineers who could contribute quickly and get them productive in a distributed system they had never seen.",
+  "action": "I screened candidates for the skills the architecture needed: Spring, REST and SQL fundamentals, plus an aptitude for debugging across services [confirm: sourcing channels and how many people were hired]. For onboarding, I wrote down the service map (gateway, composite, core, discovery, config, admin) and the rules for which service owns what, set up Git, GitHub and JIRA workflows, and gave each new engineer a first task contained within one core service before cross-service work.",
+  "result": "New engineers shipped within clear service boundaries, and the team grew without the architecture degrading [confirm: team size before and after]. What I learned: an architecture is only as good as the team's shared understanding of it, so writing down boundaries is part of designing them."
+}

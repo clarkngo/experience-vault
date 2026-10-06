@@ -1,0 +1,15 @@
+{
+  "title": "Switching careers from financial data analysis to software engineering",
+  "category": "Behavioral",
+  "tags": [
+    "Learning Agility",
+    "Career Growth",
+    "Initiative",
+    "Resilience"
+  ],
+  "relatedProject": "Career transition (Thomson Reuters / S&P Capital IQ → MSCS → software engineering)",
+  "situation": "I spent five years as a Mandarin financial analyst at Thomson Reuters and S&P Capital IQ, extracting and translating financial data from Chinese and Taiwanese filings. The parts of the job I enjoyed most were building translation tools, dictionaries and database validation rules, and I kept seeing that the real problems were in the systems, not the data.",
+  "task": "Move into software engineering without a computer science degree, and reach a level where I could compete for engineering roles.",
+  "action": "I worked through The Firehose Project's software engineering program (Ruby on Rails, test-driven development, MVC) and built portfolio apps. I then earned an MS in Computer Science at City University of Seattle with a 3.9 GPA, while working as a graduate assistant and in IT roles. I picked up CompTIA Linux+ and AWS Cloud Practitioner certifications, competed in hackathons (placing 2nd at Startup Weekend Seattle and runner-up at AngelHack), and published research. I deliberately built the same app on several stacks (MEAN, Django, AWS serverless, Azure serverless) to learn quickly across ecosystems.",
+  "result": "I went on to engineering roles at Worldwide American and eBay, where I worked as a Software Engineer II on the advertising platform, and I now build AI systems. My finance background is still an advantage: I read business metrics fluently and catch data-quality issues others miss. What I learned: deliberate, project-based learning plus credentials that signal it gets you through the door, and domain knowledge from a previous career is an asset, not lost time."
+}

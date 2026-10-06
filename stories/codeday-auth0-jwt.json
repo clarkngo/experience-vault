@@ -1,0 +1,18 @@
+{
+  "title": "Securing API routes with JWT and Auth0 during a CodeDay Labs internship",
+  "category": "Technical",
+  "tags": [
+    "Security",
+    "JWT",
+    "Auth0",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Unfamiliar Codebase"
+  ],
+  "relatedProject": "CodeDay Labs Internship (MERN application)",
+  "situation": "During my CodeDay Labs software developer internship, I joined an existing MERN (MongoDB, Express, React, Node.js) application whose REST API was consumed by the UI. Some routes that changed data had no protection [confirm: the app's purpose].",
+  "task": "Extend the REST API's functionality and protect its sensitive routes, while getting up to speed on an unfamiliar codebase within a short internship.",
+  "action": "I traced how the React UI called the API to learn the codebase, then extended the Express endpoints the UI needed. For security, I integrated Auth0 and added JSON Web Token verification as Express middleware on the protected routes, so requests without a valid token were rejected before reaching the handlers. Public read routes stayed open. I coordinated with the team through GitHub pull requests and Notion.",
+  "result": "The protected routes required a valid Auth0-issued JWT, and the API supported the new UI features [confirm: features shipped]. What I learned: how to become productive quickly in someone else's codebase, starting from how it's used, plus a lasting habit of treating authentication as middleware rather than per-route code."
+}

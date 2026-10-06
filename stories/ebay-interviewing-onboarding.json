@@ -1,0 +1,16 @@
+{
+  "title": "Interviewing new grads and turning tribal knowledge into SOPs",
+  "category": "Leadership",
+  "tags": [
+    "Hiring",
+    "Documentation",
+    "Knowledge Sharing",
+    "On-Call",
+    "Onboarding"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "The Ads Infra team was small and spread across time zones, with members in the US and other countries, and much of the knowledge for running on-call and our systems lived in people's heads. Around the same time, the team was hiring recent college graduates, and I was asked to interview candidates.",
+  "task": "Help hire well, and make it possible for new and existing teammates to handle on-call and our change-data systems without depending on me.",
+  "action": "In January 2022 I interviewed several recent-graduate candidates and gave structured feedback. For knowledge sharing, I wrote and maintained SOPs: one for experiment and front-end change metadata (how to check whether a change is missing and who to contact), others for specific revenue alerts and for jobs failing on service-account problems, plus an on-call checklist covering which alert channels to watch and how to investigate a global revenue drop. I updated the deployment docs and ran knowledge-transfer sessions and demos, such as the placement-migration and config-change demos. I helped teammates set up the service locally and reviewed their pull requests on both the UI and the batch job.",
+  "result": "Teammates had written answers for 'is this change missing?' and for common revenue-alert investigations, and the on-call checklist became the team's shared starting point for each shift. What I learned: the measure of owning a system is how well others can run it without you, and an SOP written during an incident is worth ten written afterward."
+}

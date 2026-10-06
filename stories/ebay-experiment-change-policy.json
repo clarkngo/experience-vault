@@ -1,0 +1,15 @@
+{
+  "title": "Using sampled data to change a change-tracking policy I didn't own",
+  "category": "Leadership",
+  "tags": [
+    "Influence Without Authority",
+    "Data-Driven Decisions",
+    "Cross-Team Collaboration",
+    "Process Change"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "Ramping an A/B experiment's traffic up or down can move revenue as much as a code deploy, but at eBay only one ServiceNow change request (CR) was filed per experiment, when it was created. Every later ramp up or down was invisible to anyone looking for what changed. The policy belonged to the operations and problem-management team, not mine. An earlier attempt to file a CR per experiment change had been rolled back after it reportedly produced 40,000 change records a day, so the idea was widely seen as too noisy.",
+  "task": "I worked on the ads infrastructure team as a contractor, with no authority over the policy. My task was to make the case for filing a CR on every experiment ramp up and down, and to make sure the change data we then ingested would be meaningful rather than noise.",
+  "action": "I started by questioning the 40,000 figure. eBay doesn't ramp anywhere near 40,000 experiments a day, so that number pointed to a bug, not to the real volume. I sampled and tracked experiments over the course of a day to measure how often traffic actually changed, which came to about 30 changes a day. I brought that estimate, and the visibility gap it would close, to the problem-management team and the experimentation team, which turned 'this will flood ServiceNow' into a manageable, concrete number. On our side, I made sure the data we ingested deserved the attention: we deduplicated so each experiment change was counted once, and we filtered out changes that didn't affect anything, like text edits, content updates or process-step updates that had previously come through as 'changes'.",
+  "result": "The policy changed. Multiple CRs per experiment ramp up and down went to production in March 2022, about three months after I started the discussion. Experiment traffic changes became visible in ServiceNow and in our change correlation, so on-call engineers could see a ramp-up that happened right before a drop. What I learned: when a proposal has been rejected because of a scary number, checking that number is often the whole argument, and filtering out noise is what makes more data worth having."
+}

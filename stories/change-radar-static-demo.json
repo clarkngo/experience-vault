@@ -1,0 +1,17 @@
+{
+  "title": "Shipping a backend-heavy project as a zero-cost live demo",
+  "category": "Technical",
+  "tags": [
+    "Product Thinking",
+    "React",
+    "GitHub Pages",
+    "Testing",
+    "TypeScript",
+    "CI/CD"
+  ],
+  "relatedProject": "Change Radar (portfolio project)",
+  "situation": "Change Radar needs Elasticsearch and a Spring Boot backend, but a portfolio project only matters if a recruiter can click a link and see it work. Hosting the full stack 24/7 would cost money, and asking a reviewer to run docker compose loses most of them.",
+  "task": "Give the project a live, free demo on GitHub Pages without faking its behavior or maintaining two versions of the logic that could drift apart.",
+  "action": "I put the frontend behind an API interface with two implementations: an HTTP client for the real backend, and a demo client that loads a snapshot exported from a real backend run and answers the same calls in the browser. The demo shifts every timestamp by the time since export, so the incidents always look recent. Correlation in the demo needs a TypeScript copy of the Java scorer, which is a real drift risk. I handled it with a shared file of scoring test cases that both the JUnit and Vitest suites must pass, so any formula change that isn't made in both places fails CI. A GitHub Actions workflow builds the demo variant under the repo's base path and deploys it, and a separate CI workflow runs both test suites.",
+  "result": "The project has a free live demo that behaves like the real one (the same culprit ranks first with the same score), it works on mobile, and the two scorers are guaranteed to match by 9 shared test cases. What I learned: think about how a reviewer will actually reach your work, and when duplication is unavoidable, make tests enforce that the copies agree."
+}

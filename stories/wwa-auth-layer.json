@@ -1,0 +1,16 @@
+{
+  "title": "Building the authentication layer for a microservices platform",
+  "category": "Technical",
+  "tags": [
+    "Security",
+    "Spring Security",
+    "Authentication",
+    "Microservices",
+    "API Gateway"
+  ],
+  "relatedProject": "Worldwide American - Social Media Ranking Platform",
+  "situation": "Worldwide American's ranking platform was split into an API Gateway, composite and core services. Without a deliberate design, each service would handle authentication its own way, leaving inconsistent and hard-to-audit security.",
+  "task": "Build one authentication layer that secured every service consistently without adding a lot of latency or complexity per service.",
+  "action": "I built the authentication layer with Spring Security, enforcing it at the API Gateway so authentication happened once at the edge [confirm: token type, e.g., JWT, and whether core services also checked tokens]. Downstream services trusted identity passed through the gateway inside the private network, so the security rules lived in one place. I covered it with JUnit and Mockito tests for valid, expired and missing credentials, and kept secrets in the Config Server instead of in code [confirm].",
+  "result": "Every service was secured the same way through one layer, which made new services quicker to add and access easier to audit. What I learned: centralize authentication at the edge, but decide explicitly how much internal services trust each other, because that decision is the real security boundary."
+}

@@ -1,0 +1,16 @@
+{
+  "title": "Disagreeing with stakeholders on hosted vs. self-hosted LLMs",
+  "category": "Behavioral",
+  "tags": [
+    "Disagree and Commit",
+    "Stakeholder Management",
+    "LLM",
+    "Tradeoffs",
+    "Data Privacy"
+  ],
+  "relatedProject": "CityU AI Hub - RAG Chat Systems",
+  "situation": "[confirm: crafted scenario. Verify or replace.] When planning CityU's RAG chat systems, some stakeholders wanted to use a hosted frontier-model API for answer quality. I favored self-hosting open models (Gemma via Ollama) for cost control and to keep institutional data in-house.",
+  "task": "Reach a decision that served the university, not my preference, and support it fully once made.",
+  "action": "Instead of arguing in principle, I proposed a short bake-off: the same RAG pipeline, the same evaluation questions, a hosted model versus quantized Gemma on EC2, tracked in MLflow on answer quality, latency and projected monthly cost [confirm: whether a comparison was actually run]. I presented the results neutrally, including where the hosted model was clearly better, and laid out the data-governance implications for leadership.",
+  "result": "We went with [confirm: the outcome, e.g., self-hosted for internal content with a hosted model for some use cases], and I committed fully to the decision. The quantized-deployment findings became part of my symposium talks. What I learned: when you disagree, propose an experiment, present the evidence honestly even when it cuts against you, and once the decision is made, own it."
+}

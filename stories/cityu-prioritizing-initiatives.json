@@ -1,0 +1,15 @@
+{
+  "title": "Prioritizing across seven initiatives and a 30+ project portfolio",
+  "category": "Behavioral",
+  "tags": [
+    "Prioritization",
+    "Time Management",
+    "Saying No",
+    "Stakeholder Management"
+  ],
+  "relatedProject": "CityU AI Hub & Strategy Initiatives",
+  "situation": "At CityU, I was building AI systems (RAG, multi-agent and the AI Hub) while supporting seven departmental initiatives, including BSAI, Digital Twins, Blue Tech & Maritime and Corporate AI Partnerships, through a 70+ document strategy library. Requests arrived from several leaders at once, and everything was labeled urgent.",
+  "task": "Deliver what mattered most to the department without burning out or quietly letting commitments slip.",
+  "action": "I made my workload visible: a single list of every request, each tagged with the initiative it served and its deadline [confirm: the tool you used]. When requests collided, I didn't decide alone. I brought the conflict to leadership with a recommendation, for example 'the BSAI briefing is time-bound for the leadership review, so I'll pause AI Hub features for two weeks' [confirm: a real example]. I reused work across initiatives (one RAG pipeline served several apps) and kept the strategy docs current so I didn't have to re-explain context in meetings.",
+  "result": "The BSAI briefing and program proposal were delivered for leadership review while the AI Hub kept shipping, growing to 30+ projects [confirm]. What I learned: prioritization conflicts belong with the people who own the priorities, so bring them a clear recommendation instead of silently choosing."
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Acting on feedback to communicate trade-offs earlier",
+  "category": "Behavioral",
+  "tags": [
+    "Receiving Feedback",
+    "Growth Mindset",
+    "Communication",
+    "Self-Awareness"
+  ],
+  "relatedProject": "[confirm: which role this feedback came from]",
+  "situation": "[confirm: crafted scenario. Replace it with real feedback you received.] Early in my engineering career, a manager told me that I tended to go heads-down on a hard problem and surface trade-offs or delays only when I had a finished solution, which surprised stakeholders and left them no time to adjust.",
+  "task": "Change how I worked so stakeholders saw risks and options early, without losing the deep focus that made me effective.",
+  "action": "I thanked my manager and asked for a specific recent example, so I understood the impact rather than getting defensive. I started posting short written updates at fixed points: what I'd learned, the options with trade-offs, and what I needed decided. I flagged any risk to a date the day I saw it, not when it became a problem. A few weeks later, I asked the same manager whether it was working.",
+  "result": "Stakeholders could make scope decisions earlier, and the habit carried into my later work: the status updates I posted during eBay incidents and the executive briefings at CityU both lead with options and risks [confirm]. What I learned: feedback about how you work is the most valuable kind, and asking for a specific example is what makes it actionable."
+}

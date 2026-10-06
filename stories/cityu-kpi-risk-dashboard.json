@@ -1,0 +1,17 @@
+{
+  "title": "Building a KPI and risk dashboard with live scoring",
+  "category": "Technical",
+  "tags": [
+    "React",
+    "Next.js",
+    "Chart.js",
+    "Flask",
+    "Dashboards",
+    "Full-Stack"
+  ],
+  "relatedProject": "CityU AI Hub - KPI/Risk Dashboard",
+  "situation": "At CityU, stakeholders tracked initiative KPIs and risks in scattered spreadsheets and documents, so there was no live view of what was on track and what was at risk [confirm: who used it and what it tracked].",
+  "task": "Build a dashboard where users could manage KPIs and risks and see risk scores update live as inputs changed.",
+  "action": "I built a Next.js and React front end with Chart.js visualizations and a Flask back end that exposed CRUD endpoints for KPIs and risks. I implemented the risk scoring on the back end [confirm: the formula, e.g., likelihood × impact] so it was computed the same way everywhere, and the UI re-scored and re-charted instantly when a value changed. I kept the data model simple and the forms validated, so non-technical users could maintain it themselves.",
+  "result": "Stakeholders got one live view of KPI status and risk instead of static documents [confirm: adoption or decision it supported]. It became one of the 30+ projects in the AI Hub portfolio. What I learned: a dashboard is only valuable if the people it serves can keep its data current themselves, so editing ease matters as much as the charts."
+}

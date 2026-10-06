@@ -1,0 +1,16 @@
+{
+  "title": "Handling a rate-limited upstream API without losing data",
+  "category": "Technical",
+  "tags": [
+    "Rate Limiting",
+    "Resilience",
+    "Batch Processing",
+    "Backfill",
+    "API Integration"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "The experiment-change job called the internal experimentation platform's API to enrich every change with details: placements, sites, traffic and history. In April 2022 the job started getting HTTP 429 (Too Many Requests) responses. The platform was rate-limiting us, and enrichment calls were failing, so experiment data was missing from Control Center during those periods.",
+  "task": "Stay within the platform's limits without permanently losing the experiment changes that the failed calls should have captured.",
+  "action": "Once I traced the failures to 429s, I cut the number of calls the job made per run and spread them out over longer intervals, so we stopped hitting the limit. Calling less often risked leaving gaps, so I made sure the job backfilled the periods it had missed, and I backfilled the experiment data lost while we were being throttled. This built on an earlier change I'd made so that the job reported success even when a downstream API returned a 500 error, meaning one flaky dependency couldn't fail a whole run.",
+  "result": "The 429s stopped, the gaps in experiment data were backfilled, and the job ran within the platform's limits from then on. What I learned: treat an upstream API's limits as part of your design. The fix is to call less often, and backfilling is what makes calling less often safe."
+}
