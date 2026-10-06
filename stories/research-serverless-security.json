@@ -1,0 +1,17 @@
+{
+  "title": "Analyzing the security and quality of serverless back-end architectures",
+  "category": "Technical",
+  "tags": [
+    "Serverless",
+    "AWS Lambda",
+    "Azure Functions",
+    "Security",
+    "Research",
+    "Cloud"
+  ],
+  "relatedProject": "Serverless Book Store (AWS & Azure) / CISSE 2020 publication",
+  "situation": "Serverless computing was being adopted quickly for back-end development, but the security and quality tradeoffs of handing infrastructure to a cloud provider weren't well understood by students or by many teams. I had already built the same bookstore app as serverless on both AWS (Lambda, DynamoDB) and Azure (Functions, Cosmos DB).",
+  "task": "Assess how serverless architectures change security and quality concerns compared with traditional back ends, and turn the findings into something publishable and teachable.",
+  "action": "Using my two serverless implementations as case studies, I compared the shared-responsibility model, function permission scoping, event-injection risks, cold starts and observability across the two providers [confirm: the dimensions the paper actually covered]. I wrote it up with my co-authors, Wang, Tran and Chung, as 'Serverless Computing Architecture Security and Quality Analysis for Back-end Development'.",
+  "result": "The paper was published in the Journal of The Colloquium for Information Systems Security Education (2020), and the findings fed into my teaching of cloud and cybersecurity courses. What I learned: building the same system on two platforms is the fastest way to tell which constraints come from the design and which come from the vendor."
+}

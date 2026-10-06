@@ -1,0 +1,17 @@
+{
+  "title": "Building an incident-ticketing simulation for IEEE 1028 audit exercises",
+  "category": "Technical",
+  "tags": [
+    "Python",
+    "ITSM",
+    "Software Audits",
+    "IEEE 1028",
+    "Simulation",
+    "Teaching"
+  ],
+  "relatedProject": "CityU - Incident Ticketing Simulation",
+  "situation": "Students learning software reviews and audits (IEEE 1028) and IT service management had nothing realistic to practice on. Real ticketing systems are proprietary, and textbook examples don't produce the messy evidence a real audit has to deal with.",
+  "task": "Create a realistic incident-ticketing environment that produces audit trails students can review using IEEE 1028 procedures.",
+  "action": "I built a Python simulation that generates incident tickets moving through a realistic lifecycle (logged, triaged, escalated, resolved, closed) with timestamps, owners and SLA targets. I deliberately seeded process violations, such as missed SLAs, skipped approvals and tickets closed without a resolution note [confirm: the exact violations], so students had real findings to discover. Its output fed structured audit exercises in which students followed IEEE 1028 roles and procedures to report findings.",
+  "result": "Students practiced audits on realistic evidence with known findings planted in it, which made the exercises gradable and repeatable [confirm: courses or cohorts that used it]. What I learned: planting known answers in generated data is a powerful pattern for both teaching and testing, and I used it again for the planted incidents in Change Radar."
+}

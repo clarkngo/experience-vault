@@ -1,0 +1,17 @@
+{
+  "title": "Building a metadata service to stop duplicate and double writes to Elasticsearch",
+  "category": "System Design",
+  "tags": [
+    "Microservices",
+    "Spring Boot",
+    "Elasticsearch",
+    "Idempotency",
+    "API Design",
+    "Java"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "As the change pipeline grew, several batch jobs each wrote directly to Elasticsearch, each with its own client code and its own idea of a document. I found duplicate change records and double writes in the index, including a bug where converting ZonedDateTime values produced a second write. Meanwhile other teams wanted to add their own changes (product launches, for example), and the UI and email digests read the index with queries copied in several places.",
+  "task": "Give the change data one owner: a single, consistent way to write and query changes that ruled out duplicates and that other teams and systems could use safely.",
+  "action": "I built a new Spring Boot service with a write API and a query API in front of the change indexes, and moved the batch jobs from writing to Elasticsearch directly to calling the service. To make writes idempotent, I gave each change a unique, deterministic document ID and switched inserts to upserts, so re-running a job updated records instead of duplicating them. I fixed the ZonedDateTime double write and standardized epoch-time conversion in a shared library. I added error handling and unit tests on the POST API, built a client in our shared common library so every job called the service the same way, and wrote the API design doc. The query API supported time ranges, multiple change types, sites, business units and placement filters, which the UI then used.",
+  "result": "The service went to production in May 2022, and by June all ingestion jobs wrote through it. Duplicates stopped because re-runs were now safe, and other teams could add their changes, such as search-team product launches, through the API instead of asking us. What I learned: once more than one writer touches the same data store, give it a single owner with idempotent writes. Duplicate data is much easier to prevent than to clean up."
+}

@@ -1,0 +1,16 @@
+{
+  "title": "A design I'd do differently: too many microservices for a small team",
+  "category": "Behavioral",
+  "tags": [
+    "Failure",
+    "Self-Reflection",
+    "Architecture",
+    "Tradeoffs",
+    "Microservices"
+  ],
+  "relatedProject": "Worldwide American - Social Media Ranking Platform",
+  "situation": "At Worldwide American, I designed the ranking platform as a full Spring Cloud Netflix microservices system: API Gateway, composite service, core services, discovery, config server, admin server and RabbitMQ, each core service with its own RDS database. The team was small and the engagement lasted about six months [confirm: team size].",
+  "task": "In hindsight, the goal was to ship a reliable ranking platform quickly with a small team. The architecture was optimized for a scale and team size we didn't have yet.",
+  "action": "As the platform grew, I saw the cost of the design: local development needed many services running, a feature often touched three services and their deployments, and infrastructure costs and debugging time across services added up [confirm: the specific pain you actually hit]. I responded by [confirm: e.g., consolidating services, adding Docker Compose for local dev, or documenting the service map], and I've since changed my approach: start with a modular monolith with clear internal boundaries, and split out a service only when there's a concrete scaling, ownership or deployment reason.",
+  "result": "The platform shipped and performed well (an 80% response-time improvement), but delivery was slower and operations heavier than they needed to be [confirm]. What I learned: architecture should fit the team you have, not the scale you hope for. Today I justify every service boundary with a concrete reason. That's the judgment I applied later at eBay when deciding what to extract from monoliths."
+}

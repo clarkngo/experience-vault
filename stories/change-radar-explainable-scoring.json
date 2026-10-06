@@ -1,0 +1,17 @@
+{
+  "title": "Choosing an explainable scoring model over ML for incident triage",
+  "category": "System Design",
+  "tags": [
+    "Incident Response",
+    "Observability",
+    "Algorithm Design",
+    "Tradeoffs",
+    "Java",
+    "TypeScript"
+  ],
+  "relatedProject": "Change Radar (portfolio project)",
+  "situation": "I built Change Radar, a portfolio project inspired by my eBay work. It answers the first question in any incident: what changed right before this alert? Change history was split across three systems (change requests, deploys and feature flags), and the tool had to rank which recent change most likely caused a given alert.",
+  "task": "Design a ranking that an on-call engineer would trust within seconds, that works without labeled incident history, and that I could verify was correct.",
+  "action": "I rejected a learned model: I had no labeled incidents to train on, and an engineer under pressure needs to be able to check the ranking. Instead I multiplied four factors that are easy to explain: time proximity (halving every 15 minutes before the alert, with a 5-minute allowance for clock skew), blast radius (dependency hops found by a breadth-first search over the service catalog, with cycle handling), change type and declared risk. Every score comes with plain-English reasons such as 'ads-serving depends on ads-bidder'. I deliberately kept missing metadata out of the score, because an undocumented change isn't more likely to be the cause, just harder to investigate. To prove the ranking worked, I generated demo data with three planted incidents, each with one real cause and decoys (an unrelated deploy 3 minutes before the alert, a same-service deploy 48 minutes before), and wrote tests asserting the real cause ranks first.",
+  "result": "All three planted incidents rank their real cause #1, checked by unit tests at several start times and by an end-to-end test against Elasticsearch, with correlation queries returning in tens of milliseconds. The written reasons make the ranking easy to check and argue with. What I learned: in tools for people under pressure, being able to explain a result beats a marginally better one, and planting known answers in test data is the best way to show an algorithm works."
+}

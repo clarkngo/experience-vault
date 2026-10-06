@@ -1,0 +1,15 @@
+{
+  "title": "Evolving an Elasticsearch schema without reindexing, then migrating 14 months of data",
+  "category": "Technical",
+  "tags": [
+    "Elasticsearch",
+    "Schema Design",
+    "Data Migration",
+    "Tradeoffs"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "Change records in Elasticsearch needed structured fields such as placement IDs that could be searched. The existing 'data' field had been dynamically mapped as text early on. In Elasticsearch you can't change an existing field's type without reindexing, so a nested object couldn't go into that field. The indexes were also created per year, and each new year's index needed explicit date mappings, or time-range queries would break.",
+  "task": "Add structured, searchable fields without disrupting a production index that the on-call team used every day, and later move the data into a cleaner v2 schema.",
+  "action": "Rather than reindexing production for one field, I added a new, explicitly mapped object field (info.placementIds), updated the batch job to write it using XContentBuilder arrays and updated the UI to read and search it. I fixed the historical placement data in production for the affected experiments. I documented the yearly index-mapping step (explicit date types for start, end, effect-start and last-modified times) so new indexes wouldn't silently break queries, and I flattened the experiment change structure to remove duplicated fields. When we moved to a v2 change schema served by our metadata service, I migrated all the change data from June 2021 to July 2022 from the v1 index to v2.",
+  "result": "Placement-based search shipped without a risky production reindex, the yearly index rollover became a documented step instead of a surprise, and the v2 migration finished in September 2022 with 14 months of history intact. What I learned: decide mappings explicitly from the start, because dynamic mapping is a shortcut that costs you later, and when production is in use, an additive change beats a perfect reindex."
+}

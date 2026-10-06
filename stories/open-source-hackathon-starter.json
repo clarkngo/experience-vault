@@ -1,0 +1,17 @@
+{
+  "title": "Contributing Google Sheets API support to a popular open-source boilerplate",
+  "category": "Behavioral",
+  "tags": [
+    "Open Source",
+    "Node.js",
+    "JavaScript",
+    "Google APIs",
+    "Collaboration",
+    "Initiative"
+  ],
+  "relatedProject": "Hackathon Starter (open-source Node.js boilerplate)",
+  "situation": "Hackathon Starter is a widely used open-source Node.js boilerplate with ready-made integrations for popular APIs. At hackathons I kept needing Google Sheets as a quick database or data source, and the boilerplate had no example for it.",
+  "task": "Contribute a Google Sheets API integration that met the project's conventions and that maintainers would accept.",
+  "action": "I studied how existing API examples were structured (routes, controllers, views and OAuth configuration) and built the Google Sheets example to match exactly instead of adding my own patterns. I documented the setup steps for getting credentials, tested the OAuth flow end to end, and opened a pull request explaining the use case. I responded to maintainer feedback [confirm: what feedback you got, if any]. Separately, I contributed documentation to Red Hat's Agile Integration workshop on APIs and containers.",
+  "result": "My Google Sheets API boilerplate was merged into Hackathon Starter, where other developers can use it [confirm: merged]. What I learned: in open source, matching the project's existing conventions matters more than clever code. Maintainers merge what's easy to review and maintain."
+}

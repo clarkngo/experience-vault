@@ -1,0 +1,15 @@
+{
+  "title": "Handling pushback from instructors when restructuring their workload",
+  "category": "Behavioral",
+  "tags": [
+    "Conflict Resolution",
+    "Change Management",
+    "Empathy",
+    "Team Leadership"
+  ],
+  "relatedProject": "Amazon AWS Military Apprenticeship Program (CityU)",
+  "situation": "To cut the apprenticeship program's operating budget by 40%, I had to restructure how instructor and TA hours were allocated. [confirm: crafted detail, so describe the real reaction.] One experienced instructor pushed back hard, worried the changes would reduce their hours and hurt the quality of instruction they cared about.",
+  "task": "Get the cost savings without losing a valued instructor's trust or hurting outcomes for apprentices.",
+  "action": "I met with them one-on-one before announcing anything team-wide, and listened first. Their concern about quality was legitimate, not just self-interest. I shared the utilization data openly so we were looking at the same facts, and invited them to help redesign the schedule instead of handing them a finished plan. We moved TAs onto lab support so instructors could focus on teaching, and we built in a check: if apprentice checkpoint scores dropped, we'd revisit [confirm: the actual compromise].",
+  "result": "The instructor became a supporter of the new model [confirm], the program saved $72,000 over two years, and 93% of apprentices still moved on to Amazon on-the-job training. What I learned: people resist changes done to them far more than changes they help shape, and a shared quality check turns a cost discussion into a common goal."
+}

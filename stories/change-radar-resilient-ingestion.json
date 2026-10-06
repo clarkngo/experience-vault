@@ -1,0 +1,17 @@
+{
+  "title": "Building fault-tolerant, idempotent ingestion across three different source APIs",
+  "category": "Technical",
+  "tags": [
+    "Spring Batch",
+    "Elasticsearch",
+    "Data Pipelines",
+    "Idempotency",
+    "Testcontainers",
+    "Java"
+  ],
+  "relatedProject": "Change Radar (portfolio project)",
+  "situation": "Change Radar pulls change records from three source systems that each behave differently. ServiceNow uses offset/limit paging and 'yyyy-MM-dd HH:mm:ss' UTC timestamps. The deploy API uses 1-based pages and ISO-8601 times. The feature-flag log uses 0-based pages, epoch-millisecond timestamps and a hasMore flag. Real integrations look like this, and they also fail independently.",
+  "task": "Ingest all three into one Elasticsearch index reliably: no duplicates on re-runs, no single source able to block the others, and failures visible to operators.",
+  "action": "I gave each source a small adapter that hides its paging and returns raw records, each of which knows how to normalize itself into one ChangeEvent shape. Rather than one Spring Batch job with three steps, I ran one job per source, so a ServiceNow outage can't stop deploys from being indexed, and each source reports its own status, counts and error at /api/ingest/status. Document ids are source:externalId, so re-ingesting overwrites instead of duplicating. The processor drops non-production deploys and records missing metadata at the same step. I tested the full pipeline with Testcontainers against a real Elasticsearch 9 instance, including a test that re-running ingestion leaves the document count unchanged.",
+  "result": "All 271 demo changes across the three sources are ingested on a 60-second schedule. Staging deploys are filtered out (27 skipped), re-runs are proven idempotent, and the backend's 32 tests run in CI on every push. What I learned: designing for partial failure and safe re-runs up front is far cheaper than debugging duplicate data in production. It was the same lesson as my eBay Spring Batch work, applied from day one."
+}

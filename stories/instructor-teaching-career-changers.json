@@ -1,0 +1,16 @@
+{
+  "title": "Explaining technical concepts to learners with no technical background",
+  "category": "Behavioral",
+  "tags": [
+    "Communication",
+    "Teaching",
+    "Mentorship",
+    "Empathy",
+    "Curriculum Design"
+  ],
+  "relatedProject": "Computer Science Instructor - City University of Seattle",
+  "situation": "As a Computer Science instructor at CityU, I taught eight different courses, from Linux system administration, networking with Wireshark and MySQL, to full-stack MEAN development, Python and machine learning, and cybersecurity. Many students, including military veterans and spouses in the AWS apprenticeship, were switching careers and had never written code.",
+  "task": "Make dense technical material understandable and practical for learners with very different backgrounds, on fixed timelines.",
+  "action": "I anchored every abstract concept to something the students already knew. For example, I explained networking layers through mail routing and explained database joins with spreadsheets they had used before [confirm: analogies you actually used]. I put hands-on labs before theory so students hit the problem before the explanation, and I checked understanding by having students explain concepts back instead of asking 'any questions?'. I adjusted pacing based on lab results and paired stronger students with those who were struggling.",
+  "result": "Students across eight courses went from zero to working skills, and 93% of the apprenticeship cohort moved on to Amazon on-the-job training. The approach fed into my ISCAP 2023 paper on lowering the barrier to entry for full-stack development [confirm: how directly]. What I learned: if I can't explain something simply, I don't understand it well enough. Teaching made me a much clearer engineer in design reviews and incident write-ups."
+}

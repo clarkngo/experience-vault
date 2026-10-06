@@ -1,0 +1,18 @@
+{
+  "title": "Cutting the time to link a revenue drop to its cause from hours to minutes",
+  "category": "Technical",
+  "tags": [
+    "Observability",
+    "Incident Response",
+    "Elasticsearch",
+    "Spring Batch",
+    "Java",
+    "React",
+    "Data Integration"
+  ],
+  "relatedProject": "eBay Ads - Control Center change metadata",
+  "situation": "I was a Software Engineer II on eBay's Ads Infra team, which ran Control Center, the internal portal where the ads organization monitored revenue, clicks and impressions and handled alerts. When a revenue or metric drop alerted, on-call engineers had to work out which change caused it: an A/B experiment ramping up, a code deploy, a merchandising front-end config change, a data-warehouse change or a streaming job update. That information was scattered across ServiceNow, the experimentation platform and other tools, and the experimentation platform's own UI had no way to connect a site-impacting metric drop to an experiment change. Linking a drop to a change could take hours.",
+  "task": "I owned everything related to change data. The goal was to bring every relevant change into Control Center so that whoever was investigating a drop could see what changed, when, and what it affected, right next to the metric.",
+  "action": "I built Spring Batch jobs, one per change source, that pulled from each system's API. Experiments came from ServiceNow change requests, enriched with details from the experimentation platform's API (placements, sites, business units, traffic served, start and duration). Front-end config changes, code rollouts and rollbacks, data-warehouse changes and streaming job operations came from their own sources. Each job normalized the records into one change model and indexed it in Elasticsearch. Some sources had no change history, so for those the jobs took hourly snapshots and stored the differences between snapshots as change events. On the front end, I built the Changes page in React: a searchable, sortable, filterable table, plus annotations on the time-series charts, so hovering over a point in a revenue chart showed the changes that took effect at that moment. Later, in 2023, I added ads-platform changes and planned experiments that hadn't launched yet, so teams could see upcoming changes as well as past ones. I also wrote the SOP for confirming whether an experiment's change was missing, and I became the named contact when one was.",
+  "result": "My manager described the impact this way: correlating an issue with recent changes 'could take hours in some cases'; with the change information in Control Center, recent changes 'could be surfaced within 10 minutes, and sometimes within seconds depending on the polling cycle.' The tool served roughly 20 to 40 internal users across ads infrastructure, QA, experimentation, release management, merchandising front end, analytics, problem management and engineering management. Over about two years the pipeline grew from experiments alone to six or more change types, and checking recent changes in Control Center became a standard step in on-call investigations and incident write-ups. What I learned: during an incident, putting the right data in front of the person investigating does more than a smarter alert would."
+}
